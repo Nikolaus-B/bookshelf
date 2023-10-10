@@ -1,0 +1,32 @@
+:root {
+  --white-color: #ffffff;
+  --yellow-color: #eac645;
+  --violet-color: #4f2ee8;
+  --black-first: #202024;
+  --black-second: #111111;
+}
+
+body {
+  font-family: DM Sans;
+  letter-spacing: -2%;
+  margin: 0;
+}
+
+.container {
+  max-width: 375px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    max-width: 1440px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
