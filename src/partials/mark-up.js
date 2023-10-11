@@ -14,6 +14,8 @@ function generateMainBookMarkup(books) {
       </div>
     </div>
   `).join('');
+    
+     const mainMarkUp = generateMainBookMarkup(books);
 }
 
 function generateShoppingListMarkup(books) {
@@ -28,6 +30,8 @@ function generateShoppingListMarkup(books) {
       </div>
     </div>
   `).join('');
+    
+    const shoppingListMarkUp = generateShoppingListMarkup(books);
 }
 
 function generateModalWindowMarkup(books) {
@@ -41,4 +45,8 @@ function generateModalWindowMarkup(books) {
       </div>
     </div>
   `).join('');
+    
+    const modalWindowMarkup = generateModalWindowMarkup(books);
+
+    
 }
