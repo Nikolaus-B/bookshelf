@@ -1,5 +1,7 @@
 import { fetchCategoryList, fetchCategoryBooks } from './api-request';
+import catchError from './catch-error';
 const categoriesList = document.querySelector('.categories-list');
+const categoriesContainer = document.querySelector('.categories-container');
 
 categoriesList.addEventListener('click', onClick);
 
@@ -26,6 +28,7 @@ async function renderCategories() {
     return markup;
   } catch (error) {
     console.log(error);
+    categoriesContainer.innerHTML = catchError();
   }
 }
 function createMarkup(el) {
