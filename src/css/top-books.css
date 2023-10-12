@@ -4,6 +4,15 @@
     }
 }
 
+@media screen and (max-width: 768px) {
+  .main-container {
+    display: flex;
+    flex-direction: column;
+} 
+}
+
+
+
 .books-card-container {
     display: flex;
     gap: 24px;
@@ -16,12 +25,18 @@
     .books-card-container {
         justify-content: space-between;
         height: 366px;
+
     }
 }
 
 @media screen and (min-width: 1440px) {
     .books-card-container {
         height: 306px;
+
+        .main-container {
+                display: flex;
+                flex-direction: row;
+            }
     }
 }
 
