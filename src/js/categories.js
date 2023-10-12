@@ -35,4 +35,4 @@ function createMarkup(el) {
   return `<li class="categories-item"><a href="">${el}</a></li>`;
 }
 
-export default { renderCategories };
+export { renderCategories };

@@ -1,3 +1,3 @@
-import categories from './js/categories';
+import {renderCategories} from './js/categories'
 
-categories.renderCategories();
+renderCategories();
