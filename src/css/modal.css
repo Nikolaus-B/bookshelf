@@ -11,7 +11,7 @@
   cursor: not-allowed;
 }
 
-is-hidden {
+.is-hidden {
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
@@ -22,7 +22,7 @@ is-hidden {
   top: 50%;
   left: 50%;
   width: 335px;
-  height: 762px;
+  height: auto;
   padding: 40px 24px;
   cursor: pointer;
   background: #FFF;
@@ -97,27 +97,28 @@ is-hidden {
   line-height: 1.29;
   letter-spacing: -0.56px;
   color: #111;
+  margin-bottom: 14px;
 }
 
 .features-list {
+  height: auto;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-content: center;
   align-items: center;
+  gap: 20px;
 }
 
-.features-list-item {}
-
-.features-item-link {}
-
 .features-link-img {
+  display: block;
   filter: grayscale(100%);
 }
 
 .modal-btn {
+  display: block;
   padding: 14px 28px;
-  margin-bottom: 8px;
+  margin: 0 auto 8px auto;
   font-size: 14px;
   font-weight: 700;
   line-height: 1.29;
