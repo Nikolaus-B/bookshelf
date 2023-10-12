@@ -74,6 +74,7 @@
 
 @media screen and (min-width: 768px) {
   .support-block {
+    width: 100%;
     max-width: 335px;
     padding: 24px 20px 24px 20px;
   }
@@ -98,6 +99,11 @@
     width: 22px;
     height: 22px;
     text-align: center;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .support-block {
+    margin-left: auto;
   }
 }
 
