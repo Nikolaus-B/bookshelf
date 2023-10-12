@@ -9,13 +9,23 @@ renderCategories();
 
 categoriesList.addEventListener('click', onClick);
 
+let currentSelectedCategory = null;
+
 function onClick(evt) {
   evt.preventDefault();
+
   topBooksContainer.innerHTML = '';
-  const currentCategory = evt.target.textContent;
-  fetchCategoryBooks(currentCategory)
+
+  if (currentSelectedCategory != null) {
+    currentSelectedCategory.classList.remove('active-category')
+  }
+  currentSelectedCategory = evt.target;
+  currentSelectedCategory.classList.add('active-category');
+
+  const currentCategoryId = evt.target.textContent;
+  fetchCategoryBooks(currentCategoryId)
     .then(response => {
-      const content = ""
+      let content = ""
       for (let index = 0; index < response.length; index++) {
         content += createCategoryMarkup(response[index])
       }
