@@ -3,6 +3,8 @@ import catchError from './catch-error';
 const categoriesList = document.querySelector('.categories-list');
 const categoriesContainer = document.querySelector('.categories-container');
 
+renderCategories();
+
 categoriesList.addEventListener('click', onClick);
 
 function onClick(evt) {

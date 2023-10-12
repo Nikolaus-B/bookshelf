@@ -11,3 +11,12 @@
 .categories-item {
   margin-bottom: 10px;
 }
+
+.main-container {
+  display: flex;
+}
+
+.books-card-container {
+  display: flex;
+  justify-content: space-between;
+}

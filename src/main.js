@@ -1,3 +1,2 @@
 import {renderCategories} from './js/categories'
-
-renderCategories();
+import createMarkup from './js/top-books'
