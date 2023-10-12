@@ -11,8 +11,8 @@
 /* shopping-list */
 /* @import url('./shopping-list.css'); */
 
-/* ваша стилізація 1 */
-/* @import url('./'); */
+/* categories+topBooks */
+@import url('./categories.css'); 
 
 /* ваша стилізація 2 */
 /* @import url('./'); */

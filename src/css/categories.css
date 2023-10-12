@@ -1,0 +1,22 @@
+.categories-container {
+  max-width: 335px;
+  max-height: 228px;
+  overflow: auto;
+}
+
+.categories-list {
+  list-style: none;
+}
+
+.categories-item {
+  margin-bottom: 10px;
+}
+
+.main-container {
+  display: flex;
+}
+
+.books-card-container {
+  display: flex;
+  justify-content: space-between;
+}
