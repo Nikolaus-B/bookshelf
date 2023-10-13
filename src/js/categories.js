@@ -1,16 +1,51 @@
 import { fetchCategoryList, fetchCategoryBooks } from './api-request';
 import catchError from './catch-error';
+import { renderTopBooks } from './top-books';
+import { createCategoryMarkup } from './mark-up';
+
+
 const categoriesList = document.querySelector('.categories-list');
 const categoriesContainer = document.querySelector('.categories-container');
+const topBooksContainer = document.querySelector('.best-sellers');
 
 renderCategories();
 
 categoriesList.addEventListener('click', onClick);
 
+let currentSelectedCategory = null;
+
 function onClick(evt) {
+
   evt.preventDefault();
-  const currentCategory = evt.target.textContent;
-  fetchCategoryBooks(currentCategory);
+
+  if (evt.target.className.includes("all-categories-btn")) {
+     evt.target.classList.add('active-category');
+    renderTopBooks();
+    return;
+  }
+
+  if (evt.target.nodeName != "A") {
+    return;
+  };
+
+
+  topBooksContainer.innerHTML = '';
+
+  if (currentSelectedCategory != null) {
+    currentSelectedCategory.classList.remove('active-category')
+  }
+  currentSelectedCategory = evt.target;
+  currentSelectedCategory.classList.add('active-category');
+
+  const currentCategoryId = evt.target.textContent;
+  fetchCategoryBooks(currentCategoryId)
+    .then(response => {
+      let content = ""
+      for (let index = 0; index < response.length; index++) {
+        content += createCategoryMarkup(response[index])
+      }
+      topBooksContainer.innerHTML = content;
+});
 }
 
 async function renderCategories() {
@@ -23,7 +58,7 @@ async function renderCategories() {
       .map(({ list_name }) => {
         return categoriesList.insertAdjacentHTML(
           'beforeend',
-          createMarkup(list_name)
+          createListMarkup(list_name)
         );
       })
       .join('');
@@ -33,7 +68,7 @@ async function renderCategories() {
     categoriesContainer.innerHTML = catchError();
   }
 }
-function createMarkup(el) {
+function createListMarkup(el) {
   return `<li class="categories-item"><a href="">${el}</a></li>`;
 }
 

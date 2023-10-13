@@ -3,3 +3,4 @@ document.addEventListener('DOMContentLoaded', logoModuleFunction.onDOMContentLoa
 
 import {renderCategories} from './js/categories'
 import createMarkup from './js/top-books'
+
