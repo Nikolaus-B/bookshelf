@@ -2,9 +2,9 @@ import { fetchCategoryBooks, fetchCategoryList, fetchTopBooks } from './api-requ
 import { createCategoryMarkup } from './mark-up';
 const topBooksContainer = document.querySelector('.best-sellers');
 
-createMarkup();
+renderTopBooks();
 
-export default async function createMarkup() {
+export default async function renderTopBooks() {
   const data = await fetchTopBooks();
   createGalleryItem(data);
 }
@@ -35,7 +35,7 @@ function createGalleryItem(data) {
       .join('')}</ul>
       </div>`;
 
-  topBooksContainer.insertAdjacentHTML('beforeend', markup);
+  topBooksContainer.innerHTML = markup;
 
   document.querySelectorAll('.books-btn')
     .forEach((btnItem) => {
@@ -78,3 +78,4 @@ function createTopMarkup(book) {
    </a>`;
 }
 
+export { createGalleryItem, renderTopBooks };
