@@ -11,14 +11,17 @@
 /* shopping-list */
 /* @import url('./shopping-list.css'); */
 
-/* ваша стилізація 1 */
-/* @import url('./'); */
+/* categories+topBooks */
+@import url('./categories.css');
+@import url('./top-books.css');
 
 /* ваша стилізація 2 */
 /* @import url('./'); */
 
 /* ваша стилізація 3 */
-/* @import url('./'); */
+@import url('./support.css');
 
 /* ваша стилізація 4 */
+
 /* @import url('./'); */
+@import url('./main-page-support.css');

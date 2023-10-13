@@ -1,0 +1,12 @@
+.categories-list {
+  list-style: none;
+}
+
+/* .main-container {
+  display: flex;
+} */
+
+.books-card-container {
+  display: flex;
+  justify-content: space-between;
+}
