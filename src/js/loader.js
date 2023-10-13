@@ -6,7 +6,3 @@ document.body.onload = function () {
     }
   }, 800);
 }
-window.addEventListener('load', function() {
-  const preloader = document.querySelector('.preloader');
-  preloader.classList.remove('done');
-});
