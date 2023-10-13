@@ -14,6 +14,10 @@ let currentSelectedCategory = null;
 function onClick(evt) {
   evt.preventDefault();
 
+  if (evt.target.nodeName != "A") {
+    return;
+  }
+
   topBooksContainer.innerHTML = '';
 
   if (currentSelectedCategory != null) {

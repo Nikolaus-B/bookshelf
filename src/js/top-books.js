@@ -37,19 +37,22 @@ function createGalleryItem(data) {
 
   topBooksContainer.insertAdjacentHTML('beforeend', markup);
 
-  document.querySelector('.books-btn').addEventListener('click', function (event) {
-    let cattegoryId = event.target.dataset.id
+  document.querySelectorAll('.books-btn')
+    .forEach((btnItem) => {
+      btnItem.addEventListener('click', function (event) {
+        let cattegoryId = event.target.dataset.id
 
-    fetchCategoryBooks(cattegoryId)
-      .then(response => {
-        let content = ""
-        for (let index = 0; index < response.length; index++) {
-          content += createCategoryMarkup(response[index])
-        }
-        topBooksContainer.innerHTML = content;
+        fetchCategoryBooks(cattegoryId)
+          .then(response => {
+            let content = ""
+            for (let index = 0; index < response.length; index++) {
+              content += createCategoryMarkup(response[index])
+            }
+            topBooksContainer.innerHTML = content;
 
+          })
       })
-  })
+    })
 }
 
 function createTopMarkup(book) {
