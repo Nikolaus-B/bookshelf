@@ -2,6 +2,8 @@
   --t-cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
   --content-subtitle: #B4AFAF;
   --modal-tip: rgba(17, 17, 17, 0.50);
+  --backdrop: rgba(17, 17, 17, 0.40);
+  --modal-close-btn-hov: #4F2EE8;
 }
 
 /* todo: reset default browser styles
@@ -49,12 +51,17 @@ img {
     ? ++++++++++++++++++++++++++++++++++ */
 
 .backdrop {
+  z-index: 9999;
   position: fixed;
   top: 0;
   display: flex;
   width: 100vW;
   height: 100vH;
   cursor: not-allowed;
+  background: var(--backdrop);
+  transition:
+    opacity 250ms var(--t-cubic-bezier),
+    visibility 250ms var(--t-cubic-bezier);
 }
 
 .is-hidden {
@@ -103,6 +110,12 @@ img {
   width: 100%;
   height: 100%;
   stroke: var(--black-second);
+  transition: stroke 250ms var(--t-cubic-bezier);
+}
+
+.modal-close-btn:hover .close-btn-icon,
+.modal-close-btn:focus .close-btn-icon {
+  stroke: var(--modal-close-btn-hov);
 }
 
 .modal-info-container {
@@ -179,6 +192,16 @@ img {
   text-transform: uppercase;
   border: 2px solid var(--violet-color);
   border-radius: 40px;
+  background-color: var(--white-color);
+  transition:
+    color 250ms var(--t-cubic-bezier),
+    background-color 250ms var(--t-cubic-bezier);
+}
+
+.modal-btn:hover,
+.modal-btn:focus {
+  color: var(--white-color);
+  background-color: var(--violet-color);
 }
 
 .modal-tip {

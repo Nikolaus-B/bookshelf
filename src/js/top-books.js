@@ -1,5 +1,12 @@
-import { fetchCategoryBooks, fetchCategoryList, fetchTopBooks } from './api-request';
+import {
+  fetchCategoryBooks,
+  fetchCategoryList,
+  fetchTopBooks,
+} from './api-request';
 import { createCategoryMarkup } from './mark-up';
+export { openModal} from './modal'
+
+
 const topBooksContainer = document.querySelector('.best-sellers');
 
 renderTopBooks();
@@ -27,8 +34,9 @@ function createGalleryItem(data) {
             })
             .join('')}
         </div>
-        <button class="books-btn" type="button" data-id="${elements.list_name
-          }">see more</button>
+        <button class="books-btn" type="button" data-id="${
+          elements.list_name
+        }">see more</button>
       </li>
       `;
       })
@@ -37,22 +45,27 @@ function createGalleryItem(data) {
 
   topBooksContainer.innerHTML = markup;
 
-  document.querySelectorAll('.books-btn')
-    .forEach((btnItem) => {
-      btnItem.addEventListener('click', function (event) {
-        let cattegoryId = event.target.dataset.id
+  document.querySelectorAll('.books-btn').forEach(btnItem => {
+    btnItem.addEventListener('click', function (event) {
+      let cattegoryId = event.target.dataset.id;
 
-        fetchCategoryBooks(cattegoryId)
-          .then(response => {
-            let content = ""
-            for (let index = 0; index < response.length; index++) {
-              content += createCategoryMarkup(response[index])
-            }
-            topBooksContainer.innerHTML = content;
+      fetchCategoryBooks(cattegoryId).then(response => {
+        let content = '';
+        for (let index = 0; index < response.length; index++) {
+          content += createCategoryMarkup(response[index]);
+        }
+        topBooksContainer.innerHTML = content;
+      });
+    });
+  });
 
-          })
-      })
-    })
+  const links = document.querySelectorAll('.books-item-link');
+
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      openModal();
+    });
+  });
 }
 
 function createTopMarkup(book) {
