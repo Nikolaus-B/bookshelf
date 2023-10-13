@@ -4,12 +4,13 @@ const baseURL = "https://books-backend.p.goit.global"
 
 async function apiRequest(url, errorMessage, params = {}) {
   try {
-    const response = await axios.get(url, params)
+    const response = await axios.get(url, {
+      params: params,
+    })
 
      return await response.data;
   } catch (error) {
      return new Error(errorMessage);
-
   }
 }
 
@@ -31,10 +32,7 @@ async function fetchCategoryBooks(categoryName) {
   return apiRequest(
     `${baseURL}/books/category`,
     'This page is empty, add some books and proceed to order.',
-    {
-      params:
-        { category: categoryName }
-    }
+    { category: categoryName }
   )
 }
 

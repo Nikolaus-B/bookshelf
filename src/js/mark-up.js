@@ -2,7 +2,7 @@ export { createTopMarkup, createCategoryMarkup, createModalWindowMarkup, createS
 
 
 
-  
+
     function createTopMarkup(book) {
      return ` <h2 class="second-title">${book.list_name}</h2>
      <div class="image-container">
@@ -40,19 +40,14 @@ export { createTopMarkup, createCategoryMarkup, createModalWindowMarkup, createS
    }
 
 
-
-
-
 function createCategoryMarkup(book) {
   return `
      <div class="image-container">
-       <img class="book-image" src="${book.books[0].book_image}" alt="${book.books[0].title}">
+       <img class="book-image" src="${book.book_image}" alt="${book.title}">
        <div class="info-book">
-         <h1 class="title">${book.books[0].title}</h1>
-         <p class="author">${book.books[0].author}</p>
-       </div>
-  `
-     
+         <h1 class="title">${book.title}</h1>
+         <p class="author">${book.author}</p>
+       </div>`
 }
 
 
@@ -69,7 +64,7 @@ function createShoppingListMarkup(book) {
       </div>
     </div>
   `
-    
+
 }
 
 function createModalWindowMarkup(book) {
@@ -83,5 +78,5 @@ function createModalWindowMarkup(book) {
       </div>
     </div>
   `
-    
+
 }
