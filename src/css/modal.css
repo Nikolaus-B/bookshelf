@@ -105,8 +105,14 @@ img {
   stroke: var(--black-second);
 }
 
+.modal-info-container {
+  width: 100%;
+  height: auto;
+}
+
 .modal-img-wrap {
   width: 100%;
+  height: auto;
   margin-bottom: 14px;
 }
 
@@ -161,9 +167,10 @@ img {
 }
 
 .modal-btn {
+  width: 100%;
   display: block;
-  padding: 14px 28px;
   margin: 0 auto 8px auto;
+  padding: 14px 0;
   font-size: 14px;
   font-weight: 700;
   line-height: 1.29;
