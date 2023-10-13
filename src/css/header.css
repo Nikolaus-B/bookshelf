@@ -89,14 +89,21 @@
     align-items: center;
 }
 
-.header-button-user {
+/* .header-button-user {
     display: none;
     width: 37px;
     height: 37px;
     background-color: var(--white-color);
     border: none;
     border-radius: 20px;
-}
+} */
+
+/* 
+.header-user-icon {
+    display: none;
+    stroke: var(--violet-color);
+    margin: 0 auto;
+} */
 
 .header-button {
     position: relative;
@@ -128,10 +135,8 @@
     stroke: var(--violet-color);
 }
 
-.header-user-icon {
+.header-sign-up {
     display: none;
-    stroke: var(--violet-color);
-    margin: 0 auto;
 }
 
 .switch {
@@ -192,6 +197,7 @@ input:checked+span {
 }
 
 .mob-menu {
+    padding-top: 84px;
     display: none;
     position: fixed;
     top: 0;
@@ -214,6 +220,12 @@ input:checked+span {
     background-position: bottom;
 }
 
+.menu-contain {
+    width: 375px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 @media (min-device-pixel-ratio: 2),
 (min-resolution: 192dpi),
 (min-resolution: 2dppx) {
@@ -229,13 +241,53 @@ input:checked+span {
 
 .list {
     max-width: 156px;
-    padding-top: 247px;
     display: flex;
     flex-direction: column;
     gap: 16px;
     margin: 0 auto;
 }
 
+.header-nav-icon {
+    fill: var(--white-color);
+}
+
+.menu-sign-up {
+    display: flex;
+    align-items: center;
+    gap: 89px;
+    padding: 14px 14px;
+    margin-bottom: 126px;
+    width: 184px;
+    height: 48px;
+    border-radius: 18px;
+    border: 1.5px solid var(--black-second);
+    background: var(--violet-color);
+    color: var(--white-color);
+    font-weight: 500;
+    line-height: 1.28;
+    letter-spacing: -0.56px;
+    font-size: 14px;
+}
+
+.menu-log-out {
+    position: relative;
+    bottom: 0;
+    top: 200px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 14px 24px;
+    width: 118px;
+    height: 48px;
+    border-radius: 18px;
+    border: 1.5px solid var(--black-second);
+    background: var(--white-color);
+    color: #111;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.28;
+    letter-spacing: -0.56px;
+}
 
 @media screen and (min-width: 768px) {
     .header {
@@ -268,8 +320,29 @@ input:checked+span {
         display: none;
     }
 
-    .header-button-user {
+    /* .header-button-user {
         display: block;
+    } */
+
+    .header-sign-up {
+        display: flex;
+        align-items: center;
+        gap: 89px;
+        padding: 14px 14px;
+        width: 184px;
+        height: 48px;
+        border-radius: 18px;
+        border: 1.5px solid #111;
+        background: var(--violet-color);
+        color: var(--white-color);
+        font-weight: 500;
+        line-height: 1.28;
+        letter-spacing: -0.56px;
+        font-size: 14px;
+    }
+
+    .header-sign-up-icon {
+        stroke: var(--yellow-color);
     }
 
     .header-user-icon {
