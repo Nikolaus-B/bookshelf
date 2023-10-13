@@ -2,6 +2,8 @@
 @import url('./reset.css');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap');
 
+
+
 /* header */
 /* @import url('./header.css'); */
 
@@ -23,3 +25,6 @@
 
 /* ваша стилізація 4 */
 @import url('./main-page-support.css');
+
+/* loader*/
+@import url('./loader.css'); 
