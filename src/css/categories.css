@@ -12,7 +12,11 @@
 }
 
 .active-category {
-  color: var(#4f2ee8);
+  color: #4f2ee8 !important;
   font-weight: 700;
   text-transform: uppercase;
+}
+
+.all-categories-btn {
+  cursor: pointer;
 }
