@@ -1,0 +1,18 @@
+.categories-list {
+  list-style: none;
+}
+
+/* .main-container {
+  display: flex;
+} */
+
+.books-card-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.active-category {
+  color: var(#4f2ee8);
+  font-weight: 700;
+  text-transform: uppercase;
+}
