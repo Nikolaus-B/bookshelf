@@ -2,10 +2,10 @@ import {
   fetchCategoryBooks,
   fetchCategoryList,
   fetchTopBooks,
+  fetchBookInfo,
 } from './api-request';
-import { createCategoryMarkup } from './mark-up';
-export { openModal} from './modal'
-
+import { createCategoryMarkup, createModalWindowMarkup } from './mark-up';
+import { openModal } from './modal';
 
 const topBooksContainer = document.querySelector('.best-sellers');
 
@@ -59,11 +59,23 @@ function createGalleryItem(data) {
     });
   });
 
-  const links = document.querySelectorAll('.books-item-link');
+  // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-  links.forEach(link => {
-    link.addEventListener('click', e => {
+  const modalInfoContainer = document.querySelector('.modal-info-container');
+  const books = document.querySelectorAll('.books-intem-link');
+
+  books.forEach(book => {
+    book.addEventListener('click', e => {
+      const bookId = e.currentTarget.dataset.id;
       openModal();
+      renderModalInfo();
+      async function renderModalInfo() {
+        const book = await fetchBookInfo(bookId);
+        modalInfoContainer.insertAdjacentHTML(
+          'afterbegin',
+          createModalWindowMarkup(book)
+        );
+      }
     });
   });
 }

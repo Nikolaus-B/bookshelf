@@ -8,8 +8,7 @@
 
 /* todo: reset default browser styles
 ? smth like reset.css */
-
-*,
+/* *,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -44,7 +43,7 @@ img {
 
 .link {
   text-decoration: none;
-}
+} */
 
 /*  ? ++++++++++++++++++++++++++++++++++
      ! Styles for Mobile >>>>>>>>>>>>>
@@ -124,8 +123,6 @@ img {
 }
 
 .modal-img-wrap {
-  width: 100%;
-  height: auto;
   margin-bottom: 14px;
 }
 
@@ -238,8 +235,11 @@ img {
   }
 
   .modal-img-wrap {
-    width: 192px;
     margin-bottom: 0;
+  }
+
+  img.modal-img {
+    max-width: 192px;
   }
 
   .content-title {
