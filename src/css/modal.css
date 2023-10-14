@@ -8,7 +8,7 @@
 
 /* todo: reset default browser styles
 ? smth like reset.css */
-/* *,
+*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -33,8 +33,6 @@ button {
 
 img {
   display: block;
-  height: auto;
-  max-width: 100%;
 }
 
 .list {
@@ -43,14 +41,13 @@ img {
 
 .link {
   text-decoration: none;
-} */
+}
 
 /*  ? ++++++++++++++++++++++++++++++++++
      ! Styles for Mobile >>>>>>>>>>>>>
     ? ++++++++++++++++++++++++++++++++++ */
 
 .backdrop {
-  z-index: 9999;
   position: fixed;
   top: 0;
   display: flex;
@@ -73,7 +70,7 @@ img {
   position: absolute;
   top: 50%;
   left: 50%;
-  max-width: 335px;
+  width: 335px;
   height: auto;
   padding: 40px 24px;
   cursor: pointer;
@@ -179,7 +176,7 @@ img {
 .modal-btn {
   width: 100%;
   display: block;
-  margin: 0 auto 8px auto;
+  margin: 0 auto;
   padding: 14px 0;
   font-size: 14px;
   font-weight: 700;
@@ -222,7 +219,7 @@ img {
   }
 
   .modal-container {
-    min-width: 579px;
+    width: 579px;
     padding: 40px;
   }
 
