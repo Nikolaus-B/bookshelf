@@ -11,6 +11,39 @@
   justify-content: space-between;
 }
 
+.scroll-up-btn {
+  display: none;
+  position: fixed;
+  bottom: 140px;
+  right: 20px;
+  z-index: 99;
+  cursor: pointer;
+  width: 64px;
+  height: 64px;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  background-color: rgba(79, 46, 232, 0.3);
+  padding: 5px;
+}
+
+.scroll-icon-wrapper {
+  width: 54px;
+  height: 54px;
+  border: none;
+  background-color: var(--violet-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-up-icon {
+  position: relative;
+  top: -75%;
+  flex-shrink: 0;
+}
+
 .active-category {
   color: #4f2ee8 !important;
   font-weight: 700;
