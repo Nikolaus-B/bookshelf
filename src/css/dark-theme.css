@@ -2,8 +2,18 @@
     background-color: #202024;
 }
 
+.dark body {
+    color: #FFFFFF;
+}
+
+.dark a {
+    
+    color: #FFFFFF;
+}
+
 .dark header {
     background-color: #111111;
+     color: #FFFFFF;
 }
 
 .dark .categories-item {
@@ -33,6 +43,31 @@
  
 
 
-.dark .logo-link::before {
-    color: #FFFFFF;
+
+.header-logo-text {
+
+   fill: #000000; 
 }
+
+.dark .header-logo-text {
+
+    fill: #FFFFFF;
+
+
+}
+
+.dark  .hamburger {
+
+    fill: #FFFFFF;
+
+
+}
+
+.dark .header-close-icon {
+
+   
+    fill: white
+
+
+}
+
