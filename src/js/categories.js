@@ -7,7 +7,7 @@ import { createCategoryMarkup } from './mark-up';
 const categoriesList = document.querySelector('.categories-list');
 const categoriesContainer = document.querySelector('.categories-container');
 const topBooksContainer = document.querySelector('.best-sellers');
-const preloader = document.querySelector('.preloader'); 
+const preloader = document.querySelector('.preloader')
 
 renderCategories();
 
@@ -20,29 +20,17 @@ function onClick(evt) {
   evt.preventDefault();
 
   if (evt.target.className.includes("all-categories-btn")) {
-
-    evt.target.classList.add('active-category');
-
     allCattegoriesBtn = evt.target
     allCattegoriesBtn.classList.add('active-category');
 
     currentSelectedCategoryBtn.classList.remove('active-category')
 
-
     renderTopBooks();
     return;
   }
 
-  if (evt.target.nodeName !== "A") {
+  if (evt.target.nodeName != "A") {
     return;
-
-  }
-
-  topBooksContainer.innerHTML = '';
-
-  if (currentSelectedCategory !== null) {
-    currentSelectedCategory.classList.remove('active-category');
-
   };
 
   allCattegoriesBtn.classList.remove('active-category');
@@ -51,43 +39,33 @@ function onClick(evt) {
 
   if (currentSelectedCategoryBtn != null) {
     currentSelectedCategoryBtn.classList.remove('active-category')
-
   }
   currentSelectedCategoryBtn = evt.target;
   currentSelectedCategoryBtn.classList.add('active-category');
 
   const currentCategoryId = evt.target.textContent;
 
-  
-  preloader.classList.add('visible');
-
+   preloader.classList.add('visible');
   fetchCategoryBooks(currentCategoryId)
     .then(response => {
-      let content = '';
+      let content = ""
       for (let index = 0; index < response.length; index++) {
-        content += createCategoryMarkup(response[index]);
+        content += createCategoryMarkup(response[index])
       }
-
       
-      setTimeout(() => {
+     
+      topBooksContainer.innerHTML = content;
+
+       setTimeout(() => {
         
         preloader.classList.remove('visible');
       }, 300);
-
-      topBooksContainer.innerHTML = content;
-    })
-    .catch(error => {
-      
-      preloader.classList.remove('visible');
-      console.error(error);
-    });
+});
 }
+
 async function renderCategories() {
   try {
-    
-    
     const categories = await fetchCategoryList();
-    
     if (categories.length === 0) {
       throw new Error(response.statusText);
     }
@@ -99,8 +77,6 @@ async function renderCategories() {
         );
       })
       .join('');
-    
-    
     return markup;
   } catch (error) {
     console.log(error);
