@@ -10,3 +10,13 @@
   display: flex;
   justify-content: space-between;
 }
+
+.active-category {
+  color: #4f2ee8 !important;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.all-categories-btn {
+  cursor: pointer;
+}
