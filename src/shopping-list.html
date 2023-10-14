@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping-list</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/shopping-list.css" />
+  </head>
+  <body>
+    <main class="shopping-list">
+      <div class="container">
+        <h1 class="shop-title">
+          <span class="text-color">Shopping</span> List
+        </h1>
+
+        <ul class="book-list list"></ul>
+      </div>
+      <!-- <script>
+        const localStorageArr = [
+          { id: '1', title: ' title 1', description: '', image: '' },
+          { id: '2', title: ' title 2', description: '', image: '' },
+        ];
+
+        localStorage.setItem('anton', JSON.stringify(localStorageArr));
+
+        const inLocalStorage = JSON.parse(localStorage.getItem('anton'));
+
+        const newArray = inLocalStorage.filter(item => item.id !== '1');
+
+        inLocalStorage.map(item => {
+          document.body.append(`<h1>${item.title}</h1>`);
+        });
+      </script> -->
+      <script src="./js/shopping-list.js" type="module"></script>
+    </main>
+  </body>
+</html>
