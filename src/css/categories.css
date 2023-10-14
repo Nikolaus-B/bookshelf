@@ -11,8 +11,48 @@
   justify-content: space-between;
 }
 
+.scroll-btn-wrapper {
+  display: none;
+  position: fixed;
+  bottom: 135px;
+  right: 15px;
+  width: 64px;
+  height: 64px;
+  border: none;
+  z-index: 99;
+  background-color: rgba(79, 46, 232, 0.3);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-up-btn {
+  display: none;
+  position: fixed;
+  bottom: 140px;
+  right: 20px;
+  z-index: 98;
+  cursor: pointer;
+  width: 54px;
+  height: 54px;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  background-color: var(--violet-color);
+  padding: 5px;
+}
+
+.scroll-up-icon {
+  position: relative;
+  flex-shrink: 0;
+}
+
 .active-category {
-  color: var(#4f2ee8);
+  color: #4f2ee8 !important;
   font-weight: 700;
   text-transform: uppercase;
+}
+
+.all-categories-btn {
+  cursor: pointer;
 }
