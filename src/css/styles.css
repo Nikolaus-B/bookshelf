@@ -8,7 +8,7 @@
 
 
 /* header */
-/* @import url('./header.css'); */
+@import url('./header.css');
 
 /* modal */
 /* @import url('./modal.css'); */
@@ -27,7 +27,11 @@
 @import url('./support.css');
 
 /* ваша стилізація 4 */
+
 @import url('./main-page-support.css');
 
-/* loader*/
-@import url('./loader.css'); 
+
+
+/* @import url('./'); */
+@import url('./main-page-support.css');
+

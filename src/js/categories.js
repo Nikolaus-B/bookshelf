@@ -13,28 +13,48 @@ renderCategories();
 
 categoriesList.addEventListener('click', onClick);
 
-let currentSelectedCategory = null;
+let currentSelectedCategoryBtn = null;
+let allCattegoriesBtn = document.querySelector(".all-categories-btn");
 
 function onClick(evt) {
   evt.preventDefault();
 
   if (evt.target.className.includes("all-categories-btn")) {
+
     evt.target.classList.add('active-category');
+
+    allCattegoriesBtn = evt.target
+    allCattegoriesBtn.classList.add('active-category');
+
+    currentSelectedCategoryBtn.classList.remove('active-category')
+
+
     renderTopBooks();
     return;
   }
 
   if (evt.target.nodeName !== "A") {
     return;
+
   }
 
   topBooksContainer.innerHTML = '';
 
   if (currentSelectedCategory !== null) {
     currentSelectedCategory.classList.remove('active-category');
+
+  };
+
+  allCattegoriesBtn.classList.remove('active-category');
+
+  topBooksContainer.innerHTML = '';
+
+  if (currentSelectedCategoryBtn != null) {
+    currentSelectedCategoryBtn.classList.remove('active-category')
+
   }
-  currentSelectedCategory = evt.target;
-  currentSelectedCategory.classList.add('active-category');
+  currentSelectedCategoryBtn = evt.target;
+  currentSelectedCategoryBtn.classList.add('active-category');
 
   const currentCategoryId = evt.target.textContent;
 
