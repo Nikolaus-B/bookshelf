@@ -7,6 +7,3 @@ document.addEventListener(
 
 import { renderCategories } from './js/categories';
 import createMarkup from './js/top-books';
-
-import { renderCategories } from './js/categories';
-import createMarkup from './js/top-books';
