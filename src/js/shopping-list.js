@@ -7,10 +7,10 @@ import basketMob2x from '../img/basket-mob2x.png';
 import bookMob1x from '../img/book-mob1x.png';
 import bookMob2x from '../img/book-mob2x.png';
 
-import bookMobT1x from '../img/amazon-mob1x.png';
-import bookMobT2x from '../img/amazon-mob1x.png';
-import imgBookMob1x from '../img/amazon-mob1x.png';
-import imgBookMob2x from '../img/amazon-mob1x.png';
+import bookMobT1x from '../img/book-mob-t1x.png';
+import bookMobT2x from '../img/book-mob-t2x.png';
+import imgBookMob1x from '../img/img-book-Mob1x.png';
+import imgBookMob2x from '../img/img-book-Mob2x.png';
 
 // delete potom
 import { booksJson } from './_example-data.js';
