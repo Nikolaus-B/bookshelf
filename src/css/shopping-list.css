@@ -208,6 +208,9 @@
     width: 18px;
     height: 18px;
   }
+  .book_li-icon:hover {
+    pointer-events: none;
+  }
 
   .book_li-img {
     width: 116px;

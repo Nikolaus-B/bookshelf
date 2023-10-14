@@ -1,39 +1,3 @@
-// // ссылка на элемент списка карточек ул
-// const arr = [
-//   {
-//     title: 'test 1',
-//   },
-//   {
-//     title: 'test 2',
-//   },
-//   {
-//     title: 'test 3',
-//   },
-//   {
-//     title: 'test 4',
-//   },
-// ];
-// // функция которая содаёт одну карточку
-// function createCard(book) {
-//   return `
-//     <li></li>
-//     `;
-// }
-
-// function createCardList() {
-//   let books = localStorage.getItem('books_storage');
-//   if (!books) {
-//     createEmptyPagee(); // создає пусту страніцу
-//     return;
-//   }
-
-//   books = JSON.parse(books);
-//   const booksListHTML = books.map(book => booksListHTML(book)).join('');
-//   listEl.innerHTML = booksListHTML;
-// }
-
-// function createEmptyPagee() {}
-
 import amazonMob1x from '../img/amazon-mob1x.png';
 import amazonMob2x from '../img/amazon-mob2x.png';
 import amazonMobT1x from '../img/amazon-mob-t1x.png';
@@ -42,23 +6,50 @@ import basketMob1x from '../img/basket-mob1x.png';
 import basketMob2x from '../img/basket-mob2x.png';
 import bookMob1x from '../img/book-mob1x.png';
 import bookMob2x from '../img/book-mob2x.png';
-import bookMobT1x from '../img/book-mob-t1x.png';
-import bookMobT2x from '../img/book-mob-t2x.png';
+
+import bookMobT1x from '../img/amazon-mob1x.png';
+import bookMobT2x from '../img/amazon-mob1x.png';
+import imgBookMob1x from '../img/amazon-mob1x.png';
+import imgBookMob2x from '../img/amazon-mob1x.png';
 
 // delete potom
 import { booksJson } from './_example-data.js';
 
+localStorage.setItem('books', JSON.stringify(booksJson));
+
 const bookList = document.querySelector('.book-list');
+
+const STORAGE_KEY = 'books';
+
+function createEmptyCart() {
+  const markup = `
+  <div class="empty-list">
+      <p class="empty-list-text">
+        This page is empty, add some books and proceed to order.
+      </p>
+      <img
+         class="empty-list-img"
+         src="${imgBookMob1x}"
+         srcset="
+         ${imgBookMob1x} 1x,
+         ${imgBookMob2x} 2x
+         "
+        alt="books"
+        width="265"
+        height="198"
+         />
+      </div>`;
+  bookList.innerHTML = markup;
+}
 
 function createFullCart() {
   // Отримати дані з localStorage або встановити порожній масив, якщо немає даних
-  const bookItems = JSON.parse(localStorage.getItem('book')) || [];
+  const bookItems = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 
-  // Створити HTML-код для кожного товару в кошику
-  const markup = booksJson
+  const markup = bookItems
     .map(
       ({
-        id,
+        _id,
         book_image,
         title,
         description,
@@ -66,7 +57,7 @@ function createFullCart() {
         amazon_product_url,
         list_name,
       }) => `
-      <li class="book_li book js-card" data-book-id="${id}">
+      <li class="book_li book js-card" data-book-id="${_id}">
         <div class="book_li-img">
               <img class="book_li-i" src="${
                 book_image ? book_image : '../img/def-placeholder.png'
@@ -74,9 +65,9 @@ function createFullCart() {
             </div>
             <div class="book_li-info">
               <div class="book_li-header">
-                <button class="book_li-btn">
+                <button class="book_li-btn js-card__delete">
                   <img
-                    class="book_li-icon"
+                    class="book_li-icon "
                     src="${basketMob1x}"
                     srcset="
                       ${basketMob1x} 1x,
@@ -156,9 +147,34 @@ function createFullCart() {
     )
     .join('');
 
-  // Вставити створений HTML-код в контейнер кошика
-  bookList.innerHTML = markup;
+  if (markup.length === 0) {
+    createEmptyCart();
+  } else {
+    bookList.innerHTML = markup;
+  }
 }
 
-// Викликати функцію для створення повного кошика при завантаженні сторінки
-window.onload = createFullCart();
+function deleteCard(evt) {
+  if (evt.target.classList.contains('js-card__delete')) {
+    const card = evt.target.closest('.js-card');
+    const bookId = card.dataset.bookId;
+    const storageData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    const newStorageData = storageData.filter(object => object._id !== bookId);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(newStorageData));
+
+    createFullCart();
+  }
+}
+
+window.addEventListener('click', evt => deleteCard(evt));
+
+window.onload = () => {
+  if (
+    localStorage.getItem(STORAGE_KEY) !== null ||
+    localStorage.getItem(STORAGE_KEY) != []
+  ) {
+    createFullCart();
+  } else {
+    createEmptyCart();
+  }
+};
