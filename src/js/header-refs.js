@@ -7,4 +7,5 @@ export default {
   headerUserIcon: document.querySelector('.header-user-icon'),
   openMenuBtn: document.querySelector('.js-open-menu'),
   mobileMenu: document.querySelector('.js-menu-container'),
+  fixedHeader: document.querySelector('.js-header'),
 };
