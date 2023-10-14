@@ -25,3 +25,6 @@
 
 /* @import url('./'); */
 @import url('./main-page-support.css');
+
+/* dark theme */
+@import url('./dark-theme.css');

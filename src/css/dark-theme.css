@@ -1,0 +1,38 @@
+.dark {
+    background-color: #202024;
+}
+
+.dark header {
+    background-color: #111111;
+}
+
+.dark .categories-item {
+    color: #FFFFFF99;
+}
+
+.dark .active-category {
+    color: #EAC645 !important;
+}
+.dark .title-book {
+    color: #FFFFFF;
+}
+
+.dark .books-card-title 
+
+{
+    color: #FFFFFF;
+}
+
+.dark .books-card-author {
+    color: #B4AFAF;
+}
+.dark .books-btn {
+    color: #FFFFFF;
+}
+
+ 
+
+
+.dark .logo-link::before {
+    color: #FFFFFF;
+}
