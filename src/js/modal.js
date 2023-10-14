@@ -1,6 +1,5 @@
 const backdrop = document.querySelector('.backdrop');
 const modalCloseBtn = document.querySelector('[data-action="modal-close"]');
-const modalContainer = document.querySelector('.modal-container');
 const modalInfoContainer = document.querySelector('.modal-info-container');
 
 modalCloseBtn.addEventListener('click', onCloseModal);
@@ -9,7 +8,6 @@ window.addEventListener('keydown', onEscKeyPress);
 
 export function openModal() {
   backdrop.classList.remove('is-hidden');
-  // modalContainer.insertAdjacentHTML('beforebegin', createModalWindowMarkup());
 }
 
 function onCloseModal(e) {

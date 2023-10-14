@@ -59,10 +59,11 @@ function createGalleryItem(data) {
     });
   });
 
-  // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  // ++++++++++++++++++++++++ Modal +++++++++++++++++++++++++++++++
 
   const modalInfoContainer = document.querySelector('.modal-info-container');
   const books = document.querySelectorAll('.books-intem-link');
+  const modalBtn = document.querySelector('.modal-btn');
 
   books.forEach(book => {
     book.addEventListener('click', e => {
@@ -70,11 +71,18 @@ function createGalleryItem(data) {
       openModal();
       renderModalInfo();
       async function renderModalInfo() {
+        // create modal window markup
         const book = await fetchBookInfo(bookId);
         modalInfoContainer.insertAdjacentHTML(
           'afterbegin',
           createModalWindowMarkup(book)
         );
+
+        // adding books to array in local storage
+        const books = await fetchTopBooks();
+        modalBtn.addEventListener('click', e => {
+          localStorage.setItem('books', JSON.stringify(books));
+        });
       }
     });
   });
