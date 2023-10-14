@@ -1,1 +1,102 @@
-
+<header class="header js-header">
+  <section class="header-section container">
+    <div class="header-container">
+      <div>
+        <a href="index.html" class="logo-link">
+          <svg width="24px" height="24px">
+            <use href="../img/icons.svg#logo"></use>
+          </svg>
+          <img
+            src="../img/bookshelf.png"
+            srcset="../img/bookshelf.png, ../img/bookshelf-2x.png"
+            alt="bookshelf"
+          />
+        </a>
+      </div>
+      <nav class="header-nav">
+        <ul class="header-nav-list">
+          <li>
+            <a href="../index.html" class="header-nav-item-link current-home"
+              ><span class="header-nav-item">Home</span></a
+            >
+          </li>
+          <li>
+            <a href="../shopping-list.html" class="header-nav-item-link"
+              ><span class="header-nav-item">Shopping list</span
+              ><svg class="header-nav-icon" width="20px" height="20px">
+                <use href="../img/icons.svg#cart"></use></svg
+            ></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="header-btn-container">
+      <div class="checkbox-container">
+        <label id="switch" class="switch">
+          <input type="checkbox" id="slider" />
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <button class="header-button js-open-menu">
+        <svg class="header-hamburger-icon" width="28px" height="28px">
+          <use href="../img/icons.svg#rename"></use>
+        </svg>
+        <svg class="header-close-icon" width="28px" height="28px">
+          <use href="../img/icons.svg#close"></use>
+        </svg>
+      </button>
+      <!-- <button class="header-button-user">
+        <svg class="header-user-icon" width="19px" height="19px">
+          <use href="../img/icons.svg#user"></use>
+        </svg>
+      </button> -->
+      <button class="header-sign-up">
+        Sign up<svg class="header-sign-up-icon" width="20px" height="20px">
+          <use href="../img/icons.svg#arrow-right"></use>
+        </svg>
+      </button>
+      <button class="header-user-btn visually-hidden">
+        <img src="" alt="" class="header-user-photo" />
+        <p class="header-user-name">User</p>
+        <svg class="header-icon-user" width="23px" height="26px">
+          <use href="../img/icons.svg#icon-caret-down"></use>
+        </svg>
+      </button>
+      <button class="header-log-out visually-hidden">
+        Log out<svg class="header-sign-up-icon" width="20px" height="20px">
+          <use href="../img/icons.svg#arrow-right"></use>
+        </svg>
+      </button>
+    </div>
+  </section>
+</header>
+<div class="mob-menu js-menu-container">
+  <div class="mob-menu-wraper">
+    <div class="menu-contain">
+      <button class="menu-sign-up visually-hidden">
+        Sign up<svg class="header-sign-up-icon" width="20px" height="20px">
+          <use href="../img/icons.svg#arrow-right"></use>
+        </svg>
+      </button>
+      <ul class="list">
+        <li class="mob-menu-item">
+          <a href="../index.html" class="header-nav-item-link current-home"
+            ><span class="header-nav-item">Home</span></a
+          >
+        </li>
+        <li class="mob-menu-item">
+          <a href="../shopping-list.html" class="header-nav-item-link"
+            ><span class="header-nav-item">Shopping list</span
+            ><svg class="header-nav-icon" width="20px" height="20px">
+              <use href="../img/icons.svg#cart"></use></svg
+          ></a>
+        </li>
+      </ul>
+      <button class="menu-log-out visually-hidden">
+        Log out<svg class="header-sign-up-icon" width="20px" height="20px">
+          <use href="../img/icons.svg#arrow-right"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
