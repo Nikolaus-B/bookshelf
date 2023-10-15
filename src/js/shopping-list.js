@@ -20,7 +20,7 @@ document.addEventListener(
 );
 
 // delete potom
-// import { booksJson } from './_example-data.js';
+import { booksJson } from './_example-data.js';
 
 localStorage.setItem('books', JSON.stringify(booksJson));
 

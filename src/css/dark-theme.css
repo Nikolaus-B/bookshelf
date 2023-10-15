@@ -27,7 +27,6 @@
   color: #ffffff;
 }
 
-
 .dark .books-card-author {
   color: #b4afaf;
 }
@@ -43,32 +42,35 @@
   fill: #ffffff;
 }
 .dark .header-hamburger-icon,
-.dark .header-close-icon
-{
+.dark .header-close-icon {
   background: black;
   stroke: white;
 }
 
 .dark .header-nav-icon {
-        
-        fill: white;
-    }
+  fill: white;
+}
 
-          .dark .header-nav-item {
-              color: white;
-            
-          }
-    
-          
-          @media (max-width: 768px) {
-              .dark .header-nav-item {
-                  color: white;
-                 
-              }
-          }
+.dark .header-nav-item {
+  color: white;
+}
 
-                                .dark .nav-item-shop {
-                
-                                    color: white;
-                                }  
+@media (max-width: 768px) {
+  .dark .header-nav-item {
+    color: white;
+  }
+}
 
+.dark .nav-item-shop {
+  color: white;
+}
+
+.dark .text-color,
+.dark .book_li-title,
+.dark .book_li-description,
+.book_li-description {
+  color: white;
+}
+.dark .book_li {
+  background-color: #202024;
+}
