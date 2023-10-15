@@ -21,9 +21,6 @@ function onClick(evt) {
 
   if (evt.target.className.includes("all-categories-btn")) {
     allCattegoriesBtn = evt.target
-    allCattegoriesBtn.classList.add('active-category');
-
-    currentSelectedCategoryBtn.classList.remove('active-category')
 
     renderTopBooks();
     return;
@@ -33,21 +30,14 @@ function onClick(evt) {
     return;
   };
 
-  allCattegoriesBtn.classList.remove('active-category');
-
   topBooksContainer.innerHTML = '';
-
-  if (currentSelectedCategoryBtn != null) {
-    currentSelectedCategoryBtn.classList.remove('active-category')
-  }
-  currentSelectedCategoryBtn = evt.target;
-  currentSelectedCategoryBtn.classList.add('active-category');
 
   const currentCategoryId = evt.target.textContent;
 
    preloader.classList.add('visible');
   fetchCategoryBooks(currentCategoryId)
     .then(response => {
+      toggleCategoryBtn(currentCategoryId);
       let content = ""
       for (let index = 0; index < response.length; index++) {
         content += createCategoryMarkup(response[index])
@@ -84,7 +74,24 @@ async function renderCategories() {
   }
 }
 function createListMarkup(el) {
-  return `<li class="categories-item"><a href="">${el}</a></li>`;
+  return `<li class="categories-item"><a href="" data-categoryId = "${el}">${el}</a></li>`;
 }
 
-export { renderCategories };
+function toggleCategoryBtn(categoryId) {
+  if (currentSelectedCategoryBtn != null) {
+    currentSelectedCategoryBtn.classList.remove('active-category')
+  }
+
+  if (allCattegoriesBtn != null) {
+    allCattegoriesBtn.classList.remove('active-category')
+  }
+
+  if (categoryId === "all") {
+    allCattegoriesBtn.classList.add('active-category');
+  } else {
+    currentSelectedCategoryBtn = document.querySelector(`a[data-categoryId = "${categoryId}"]`);
+    currentSelectedCategoryBtn.classList.add('active-category');
+  }
+}
+
+export { renderCategories, toggleCategoryBtn };

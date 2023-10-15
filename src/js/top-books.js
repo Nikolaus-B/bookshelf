@@ -1,5 +1,6 @@
 import { fetchCategoryBooks, fetchCategoryList, fetchTopBooks } from './api-request';
 import { createCategoryMarkup } from './mark-up';
+import { toggleCategoryBtn } from './categories';
 const topBooksContainer = document.querySelector('.best-sellers');
 const preloader = document.querySelector('.preloader')
 
@@ -10,6 +11,7 @@ export default async function renderTopBooks() {
   preloader.classList.add('visible');
 
   const data = await fetchTopBooks();
+  toggleCategoryBtn("all")
   createGalleryItem(data);
   
     setTimeout(() => {
@@ -46,20 +48,24 @@ function createGalleryItem(data) {
 
   topBooksContainer.innerHTML = markup;
 
+  function renderCategoryBooks(id, content) {
+    toggleCategoryBtn(id)
+
+    let innerHTML = ""
+      for (let index = 0; index < content.length; index++) {
+        innerHTML += createCategoryMarkup(content[index])
+      }
+      topBooksContainer.innerHTML = innerHTML;
+ }
+
   document.querySelectorAll('.books-btn')
     .forEach((btnItem) => {
       btnItem.addEventListener('click', function (event) {
         let cattegoryId = event.target.dataset.id
 
         fetchCategoryBooks(cattegoryId)
-          .then(response => {
-            let content = ""
-            for (let index = 0; index < response.length; index++) {
-              content += createCategoryMarkup(response[index])
-            }
-            topBooksContainer.innerHTML = content;
-
-          })
+          .then(response => renderCategoryBooks(cattegoryId, response)
+          )
       })
     })
 }
