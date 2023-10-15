@@ -9,6 +9,17 @@ export default async function renderTopBooks() {
   const data = await fetchTopBooks();
   toggleCategoryBtn("all")
   createGalleryItem(data);
+
+  document.querySelectorAll('.books-btn')
+  .forEach((btnItem) => {
+    btnItem.addEventListener('click', function (event) {
+
+      let cattegoryId = event.target.dataset.id
+
+      fetchCategoryBooks(cattegoryId)
+        .then(response => renderCategoryBooks(cattegoryId, response))
+    })
+  })
 }
 
 function createGalleryItem(data) {
@@ -38,28 +49,23 @@ function createGalleryItem(data) {
       </div>`;
 
   topBooksContainer.innerHTML = markup;
-
-  function renderCategoryBooks(id, content) {
-    toggleCategoryBtn(id)
-
-    let innerHTML = ""
-      for (let index = 0; index < content.length; index++) {
-        innerHTML += createCategoryMarkup(content[index])
-      }
-      topBooksContainer.innerHTML = innerHTML;
- }
-
-  document.querySelectorAll('.books-btn')
-    .forEach((btnItem) => {
-      btnItem.addEventListener('click', function (event) {
-        let cattegoryId = event.target.dataset.id
-
-        fetchCategoryBooks(cattegoryId)
-          .then(response => renderCategoryBooks(cattegoryId, response)
-          )
-      })
-    })
 }
+
+function renderCategoryBooks(id, content) {
+  toggleCategoryBtn(id)
+  let innerHTML = "";
+
+  var category = id
+  let words = category.split(' ');
+  words[words.length - 1] = `<span class="colored">${words[words.length - 1]}</span>`;
+  category = words.join(' ');
+  innerHTML += `<h2 class="category-title">${category}</h2>`;
+
+  for (let index = 0; index < content.length; index++) {
+    innerHTML += createCategoryMarkup(content[index])
+  }
+  topBooksContainer.innerHTML = innerHTML;
+ }
 
 function createTopMarkup(book) {
   return `<a href="#" class="books-intem-link" aria-label="books-item-link" rel="noopener noreferrer" data-id='${book._id}'>
@@ -84,4 +90,4 @@ function createTopMarkup(book) {
    </a>`;
 }
 
-export { createGalleryItem, renderTopBooks };
+export { createGalleryItem, renderTopBooks, renderCategoryBooks}
