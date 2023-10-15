@@ -2,13 +2,18 @@ import { fetchCategoryBooks, fetchCategoryList, fetchTopBooks } from './api-requ
 import { createCategoryMarkup } from './mark-up';
 import { toggleCategoryBtn } from './categories';
 const topBooksContainer = document.querySelector('.best-sellers');
+const preloader = document.querySelector('.preloader')
 
 renderTopBooks();
 
 export default async function renderTopBooks() {
+
+  preloader.classList.add('visible');
+
   const data = await fetchTopBooks();
   toggleCategoryBtn("all")
   createGalleryItem(data);
+
 
   document.querySelectorAll('.books-btn')
   .forEach((btnItem) => {
@@ -20,6 +25,12 @@ export default async function renderTopBooks() {
         .then(response => renderCategoryBooks(cattegoryId, response))
     })
   })
+
+  
+    setTimeout(() => {
+        
+        preloader.classList.remove('visible');
+      }, 300);
 }
 
 function createGalleryItem(data) {
