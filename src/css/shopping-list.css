@@ -7,7 +7,17 @@
 .list {
   list-style: none;
 }
+.shopping-list-full {
+  align-items: flex-start;
+  padding-bottom: 40px;
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+}
 
+.support-block {
+  display: none;
+}
 .empty-list {
   max-width: 265px;
   flex-direction: column;
@@ -281,5 +291,8 @@
 @media screen and (min-width: 1440px) {
   .container {
     max-width: 1440px;
+  }
+  .support-block {
+    display: block;
   }
 }
