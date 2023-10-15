@@ -294,11 +294,43 @@
           </button>
         </div>
         <section class="shop-box">
-          <h1 class="shop-title">
-            <span class="text-color">Shopping</span> List
-          </h1>
+          <div>
+            <h1 class="shop-title">
+              <span class="text-color">Shopping</span> List
+            </h1>
 
-          <ul class="book-list"></ul>
+            <ul class="book-list" id="paginated-list" aria-live="polite"></ul>
+          </div>
+          <div>
+            <nav class="pagination-container">
+              <button
+                class="pagination-button-left"
+                id="prev-button"
+                title="Previous page"
+                aria-label="Previous page"
+              >
+                <svg class="icon-pagination-left" width="24px" height="24px">
+                  <use href="./img/icons.svg#icon-pagination-left"></use>
+                </svg>
+              </button>
+
+              <div
+                id="pagination-numbers"
+                class="pagination-number-container"
+              ></div>
+
+              <button
+                class="pagination-button-right"
+                id="next-button"
+                title="Next page"
+                aria-label="Next page"
+              >
+                <svg class="icon-pagination-right" width="24px" height="24px">
+                  <use href="./img/icons.svg#icon-pagination-right"></use>
+                </svg>
+              </button>
+            </nav>
+          </div>
         </section>
       </div>
     </main>

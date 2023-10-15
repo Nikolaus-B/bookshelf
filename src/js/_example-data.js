@@ -172,37 +172,3 @@ export const booksJson = [
     __v: 0,
   },
 ];
-const modalInfoContainer = document.querySelector('.modal-info-container');
-const books = document.querySelectorAll('.books-intem-link');
-const modalBtn = document.querySelector('.modal-btn');
-let modalBookId;
-
-books.forEach(book => {
-  book.addEventListener('click', e => {
-    modalBookId = e.currentTarget.dataset.id;
-    openModal();
-    renderModalInfo();
-
-    async function renderModalInfo() {
-      const book = await fetchBookInfo(modalBookId);
-      modalInfoContainer.insertAdjacentHTML(
-        'afterbegin',
-        createModalWindowMarkup(book)
-      );
-
-      const booksArray = getBooksFromLocalStorage();
-      booksArray.push(book);
-      localStorage.setItem('books', JSON.stringify(booksArray));
-    }
-  });
-});
-
-modalBtn?.addEventListener('click', () => {
-  const booksArray = getBooksFromLocalStorage();
-  const updatedBooksArray = booksArray.filter(book => book._id !== modalBookId);
-  localStorage.setItem('books', JSON.stringify(updatedBooksArray));
-});
-
-function getBooksFromLocalStorage() {
-  return JSON.parse(localStorage.getItem('books')) || [];
-}

@@ -28,3 +28,6 @@
 
 /* dark theme */
 @import url('./dark-theme.css');
+
+/* pagination */
+@import url('./pagination.css');
