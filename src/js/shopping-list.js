@@ -12,12 +12,13 @@ import bookMobT2x from '../img/book-mob-t2x.png';
 import imgBookMob1x from '../img/img-book-Mob1x.png';
 import imgBookMob2x from '../img/img-book-Mob2x.png';
 
-import { handlerClickMenu } from './js/header';
+import { handlerClickMenu } from './header';
 import logoModuleFunction from './support';
 document.addEventListener(
   'DOMContentLoaded',
   logoModuleFunction.onDOMContentLoaded
 );
+
 // delete potom
 import { booksJson } from './_example-data.js';
 
