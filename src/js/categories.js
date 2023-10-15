@@ -17,41 +17,23 @@ let allCattegoriesBtn = document.querySelector(".all-categories-btn");
 function onClick(evt) {
   evt.preventDefault();
 
-  if (evt.target.className.includes("all-categories-btn")) {
-    allCattegoriesBtn = evt.target
+  if (evt.target.className.includes('all-categories-btn')) {
+    allCattegoriesBtn = evt.target;
 
     renderTopBooks();
     return;
   }
 
-  if (evt.target.nodeName != "A") {
+  if (evt.target.nodeName != 'A') {
     return;
-  };
+  }
 
   topBooksContainer.innerHTML = '';
 
   const currentCategoryId = evt.target.textContent;
 
   displayCategoryBooks(currentCategoryId);
-//   fetchCategoryBooks(currentCategoryId)
-//     .then(response => {
-//       let content = ""
-//       for (let index = 0; index < response.length; index++) {
-//         content += createCategoryMarkup(response[index])
-//       }
-//       topBooksContainer.innerHTML = content;
-// });
-
-  fetchCategoryBooks(currentCategoryId)
-    .then(response => {
-      toggleCategoryBtn(currentCategoryId);
-      let content = ""
-      for (let index = 0; index < response.length; index++) {
-        content += createCategoryMarkup(response[index])
-      }
-      topBooksContainer.innerHTML = content;
-});
-
+  toggleCategoryBtn(currentCategoryId);
 }
 
 async function renderCategories() {
@@ -79,12 +61,9 @@ function createListMarkup(el) {
   return `<li class="categories-item"><a href="" data-categoryId = "${el}">${el}</a></li>`;
 }
 
-export { renderCategories };
 
-
- 
 function displayCategoryBooks(category) {
-  const categoryTitle = document.getElementById('#category-title');
+  const categoryTitle = document.getElementById('category-title');
   if (categoryTitle) {
     categoryTitle.textContent = category;
   }
@@ -104,20 +83,7 @@ category = words.join(' ');
       }
       topBooksContainer.innerHTML = content;
     });
-
-// function paintCategoryMarkup(category) {
-//   let words = category.split(' ');
-//   words[words.length - 1] = `<span class="colored">${words[words.length - 1]}</span>`;
-//   category = words.join(' ');
-
-// }
 }
-
-// <div>
-//   <h2></h2>
-//   createCategoryMarkup();
-// </div>
-
 
 function toggleCategoryBtn(categoryId) {
   if (currentSelectedCategoryBtn != null) {
