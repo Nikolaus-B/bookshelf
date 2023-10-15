@@ -57,7 +57,7 @@
 
 @media (max-width: 768px) {
   .dark .header-nav-item {
-    color: white;
+    color: black;
   }
 }
 
