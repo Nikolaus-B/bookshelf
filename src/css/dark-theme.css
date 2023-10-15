@@ -53,3 +53,22 @@
         
         fill: white;
     }
+
+          .dark .header-nav-item {
+              color: white;
+            
+          }
+    
+          
+          @media (max-width: 768px) {
+              .dark .header-nav-item {
+                  color: white;
+                 
+              }
+          }
+
+                                .dark .nav-item-shop {
+                
+                                    color: white;
+                                }  
+
