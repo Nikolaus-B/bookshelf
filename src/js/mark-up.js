@@ -42,7 +42,7 @@ export { createTopMarkup, createCategoryMarkup, createModalWindowMarkup, createS
 
 function createCategoryMarkup(book) {
   return `
-     <div class="image-container">
+  <div class="image-container">
        <img class="book-image" src="${book.book_image}" alt="${book.title}">
        <div class="info-book">
          <h1 class="title">${book.title}</h1>

@@ -88,11 +88,13 @@ function displayCategoryBooks(category) {
     categoryTitle.textContent = category;
   }
 
-  fetchCategoryBooks(category)
+  fetchCategoryBooks(category) 
     .then(response => {
       let content = "";
-
-  content += `<h2 id="category-title" class="category-title">${category}</h2>`;
+      let words = category.split(' ');
+words[words.length - 1] = `<span class="colored">${words[words.length - 1]}</span>`;
+category = words.join(' ');
+  content += `<h2 class="category-title">${category}</h2>`;
 
   const categoryTitleElement = document.querySelector('.category-title');
   
@@ -101,13 +103,19 @@ function displayCategoryBooks(category) {
       }
       topBooksContainer.innerHTML = content;
     });
+
+// function paintCategoryMarkup(category) {
+//   let words = category.split(' ');
+//   words[words.length - 1] = `<span class="colored">${words[words.length - 1]}</span>`;
+//   category = words.join(' ');
+
+// }
 }
 
-
-
-
-
-
+// <div>
+//   <h2></h2>
+//   createCategoryMarkup();
+// </div>
 
 
 

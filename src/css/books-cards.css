@@ -32,6 +32,10 @@ body {
     color: #111;
 }
 
+.colored {
+    color: #4F2EE8;
+}
+
 
 @media screen and (min-width: 768px) {
 
@@ -50,7 +54,7 @@ body {
     }
 
     .best-sellers {
-      gap: 25px;  
+      gap: 40px 25px;  
     }
 
     .category-title {
@@ -73,7 +77,9 @@ body {
     }
 
     .best-sellers {
-       gap: 24px;
+       gap: 40px 24px;
+       align-self: flex-start;
+       margin: 0;
     }
 
     .image-container {
@@ -84,6 +90,7 @@ body {
 
     .category-title {
         font-size: 48px;
+        margin: 0;
         min-width: 100%;
     }
 }
