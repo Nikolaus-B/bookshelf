@@ -3,7 +3,6 @@ import catchError from './catch-error';
 import { renderTopBooks } from './top-books';
 import { createCategoryMarkup } from './mark-up';
 
-
 const categoriesList = document.querySelector('.categories-list');
 const categoriesContainer = document.querySelector('.categories-container');
 const topBooksContainer = document.querySelector('.best-sellers');
@@ -43,14 +42,15 @@ function onClick(evt) {
   currentSelectedCategoryBtn.classList.add('active-category');
 
   const currentCategoryId = evt.target.textContent;
-  fetchCategoryBooks(currentCategoryId)
-    .then(response => {
-      let content = ""
-      for (let index = 0; index < response.length; index++) {
-        content += createCategoryMarkup(response[index])
-      }
-      topBooksContainer.innerHTML = content;
-});
+  displayCategoryBooks(currentCategoryId);
+//   fetchCategoryBooks(currentCategoryId)
+//     .then(response => {
+//       let content = ""
+//       for (let index = 0; index < response.length; index++) {
+//         content += createCategoryMarkup(response[index])
+//       }
+//       topBooksContainer.innerHTML = content;
+// });
 }
 
 async function renderCategories() {
@@ -59,6 +59,7 @@ async function renderCategories() {
     if (categories.length === 0) {
       throw new Error(response.statusText);
     }
+
     const markup = await categories
       .map(({ list_name }) => {
         return categoriesList.insertAdjacentHTML(
@@ -78,3 +79,35 @@ function createListMarkup(el) {
 }
 
 export { renderCategories };
+
+
+ 
+function displayCategoryBooks(category) {
+  const categoryTitle = document.getElementById('#category-title');
+  if (categoryTitle) {
+    categoryTitle.textContent = category;
+  }
+
+  fetchCategoryBooks(category)
+    .then(response => {
+      let content = "";
+
+  content += `<h2 id="category-title" class="category-title">${category}</h2>`;
+
+  const categoryTitleElement = document.querySelector('.category-title');
+  
+  for (let index = 0; index < response.length; index++) {
+        content += createCategoryMarkup(response[index]);
+      }
+      topBooksContainer.innerHTML = content;
+    });
+}
+
+
+
+
+
+
+
+
+

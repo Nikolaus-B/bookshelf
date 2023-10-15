@@ -1,3 +1,7 @@
+body {
+    background-color: #F6F6F6;
+}
+
 .book-image {
     width: 335px;
     height: 485px;
@@ -22,6 +26,13 @@
     flex-wrap: wrap;
 }
 
+
+.category-title {
+    font-size: 32px;
+    color: #111;
+}
+
+
 @media screen and (min-width: 768px) {
 
     .book-image {
@@ -40,6 +51,12 @@
 
     .best-sellers {
       gap: 25px;  
+    }
+
+    .category-title {
+        min-width: 100%;
+        font-size: 48px;
+        margin-bottom: 40px;
     }
 }
 
@@ -63,5 +80,10 @@
         flex-wrap: wrap;
         display: flex;
         flex-direction: column;
+    }
+
+    .category-title {
+        font-size: 48px;
+        min-width: 100%;
     }
 }
