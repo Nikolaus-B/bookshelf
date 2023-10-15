@@ -59,13 +59,16 @@ function createGalleryItem(data) {
     });
   });
 
-  // ++++++++++++++++++++++++ Modal +++++++++++++++++++++++++++++++
+  // ++++++++++++++++++++++++ MODAL +++++++++++++++++++++++++++++++
 
   const modalInfoContainer = document.querySelector('.modal-info-container');
   const booksArray = document.querySelectorAll('.books-intem-link');
-  const modalBtn = document.querySelector('.modal-btn');
+  const modalBtnAdd = document.querySelector('.modal-btn-add');
+  const modalBtnRemove = document.querySelector('.modal-btn-remove');
+  const modalTip = document.querySelector('.modal-tip');
 
   let bookId;
+  let booksArr = [];
   const STORAGE_KEY = 'books';
 
   booksArray.forEach(book => {
@@ -82,21 +85,47 @@ function createGalleryItem(data) {
     });
   });
 
-  modalBtn.addEventListener('click', async e => {
-    let booksArray = [];
-
+  modalBtnAdd.addEventListener('click', async e => {
     const book = await fetchBookInfo(bookId);
 
-    if (localStorage.getItem(STORAGE_KEY) !== null) {
-      booksArray = JSON.parse(localStorage.getItem(STORAGE_KEY));
-      booksArray.push(book);
+    const data = localStorage.getItem(STORAGE_KEY);
+
+    if (data !== null) {
+      booksArr = JSON.parse(data);
+      console.log(booksArr);
+      booksArr.push(book);
     } else {
-      booksArray.push(book);
+      booksArr.push(book);
     }
 
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(booksArray));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(booksArr));
+
+    modalBtnAdd.classList.add('visually-hidden');
+    modalBtnRemove.classList.remove('visually-hidden');
+    modalTip.classList.remove('visually-hidden');
+  });
+
+  modalBtnRemove.addEventListener('click', async e => {
+    await fetchBookInfo(bookId);
+
+    const data = localStorage.getItem(STORAGE_KEY);
+    booksArr = JSON.parse(data) || [];
+
+    const indexOfObject = booksArr.findIndex(obj => obj._id === bookId);
+
+    if (indexOfObject !== -1) {
+      booksArr.splice(indexOfObject, 1);
+    }
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(booksArr));
+
+    modalBtnAdd.classList.remove('visually-hidden');
+    modalBtnRemove.classList.add('visually-hidden');
+    modalTip.classList.add('visually-hidden');
   });
 }
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 function createTopMarkup(book) {
   return `<a href="#" class="books-intem-link" aria-label="books-item-link" rel="noopener noreferrer" data-id='${book._id}'>

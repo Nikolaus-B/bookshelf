@@ -6,8 +6,7 @@
   --modal-close-btn-hov: #4F2EE8;
 }
 
-/* todo: reset default browser styles
-? smth like reset.css */
+/* smth like reset.css */
 *,
 *::before,
 *::after {
@@ -115,7 +114,7 @@ img {
 }
 
 .modal-info-container {
-  width: 100%;
+  min-width: 287px;
   height: auto;
 }
 
@@ -148,6 +147,7 @@ img {
 
 .modal-content-wrap {
   width: auto;
+  height: auto;
   margin-bottom: 44px;
 }
 
@@ -160,6 +160,7 @@ img {
 }
 
 .content-list {
+  width: auto;
   height: auto;
   display: flex;
   flex-direction: row;
@@ -169,11 +170,13 @@ img {
   gap: 20px;
 }
 
-.content-link-img {
+.link-img {
   filter: grayscale(100%);
 }
 
-.modal-btn {
+
+.modal-btn-add,
+.modal-btn-remove {
   width: 100%;
   display: block;
   margin: 0 auto;
@@ -192,8 +195,8 @@ img {
     background-color 250ms var(--t-cubic-bezier);
 }
 
-.modal-btn:hover,
-.modal-btn:focus {
+.btn:hover,
+.btn:focus {
   color: var(--white-color);
   background-color: var(--violet-color);
 }
@@ -204,6 +207,19 @@ img {
   letter-spacing: -0.4px;
   color: var(--modal-tip);
   text-align: center;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 /*  ? ++++++++++++++++++++++++++++++++++
@@ -258,12 +274,14 @@ img {
   }
 
   .modal-tip {
+    margin-top: 8px;
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: -0.48px;
   }
 
-  .modal-btn {
+  .modal-btn-add,
+  .modal-btn-remove {
     width: 100%;
     padding: 20px 0;
     font-size: 18px;
