@@ -2,6 +2,7 @@ import { fetchCategoryList, fetchCategoryBooks } from './api-request';
 import catchError from './catch-error';
 import { renderTopBooks } from './top-books';
 import { createCategoryMarkup } from './mark-up';
+import { renderCategoryBooks } from './top-books';
 
 const categoriesList = document.querySelector('.categories-list');
 const categoriesContainer = document.querySelector('.categories-container');
@@ -71,6 +72,9 @@ function displayCategoryBooks(category) {
     categoryTitle.textContent = category;
   }
 
+
+  fetchCategoryBooks(category)
+    .then(response => renderCategoryBooks(category, response) );
 preloader.classList.add('visible');
 
   fetchCategoryBooks(category) 
@@ -93,6 +97,7 @@ category = words.join(' ');
         preloader.classList.remove('visible');
       }, 300);
     });
+
 }
 
 function toggleCategoryBtn(categoryId) {
