@@ -259,7 +259,7 @@ input:checked+span {
     transform: translateY(0);
 }
 
-.list {
+.header-list {
     padding-top: 163px;
     max-width: 117px;
     display: flex;
