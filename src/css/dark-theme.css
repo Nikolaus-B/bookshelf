@@ -1,79 +1,55 @@
 .dark {
-    background-color: #202024;
+  background-color: #202024;
 }
 
-.dark body {
-    color: #FFFFFF;
-}
-
+.dark body,
 .dark a {
-    
-    color: #FFFFFF;
+  color: #ffffff;
 }
 
 .dark header {
-    background-color: #111111;
-     color: #FFFFFF;
+  background-color: #111111;
+  color: #ffffff;
 }
 
 .dark .categories-item {
-    color: #FFFFFF99;
+  color: #ffffff99;
 }
 
 .dark .active-category {
-    color: #EAC645 !important;
+  color: #eac645 !important;
 }
 .dark .title-book {
-    color: #FFFFFF;
+  color: #ffffff;
 }
 
-.dark .books-card-title 
-
-{
-    color: #FFFFFF;
+.dark .books-card-title {
+  color: #ffffff;
 }
+
 
 .dark .books-card-author {
-    color: #B4AFAF;
+  color: #b4afaf;
 }
 .dark .books-btn {
-    color: #FFFFFF;
+  color: #ffffff;
 }
 
- 
-
-
-
 .header-logo-text {
-
-   fill: #000000; 
+  fill: #000000;
 }
 
 .dark .header-logo-text {
-
-    fill: #FFFFFF;
-
-
+  fill: #ffffff;
 }
-
-.dark  .hamburger {
-
-    fill: #FFFFFF;
-
-
-}
-
-.dark .header-close-icon {
-
-   
-    fill: white
-
-
+.dark .header-hamburger-icon,
+.dark .header-close-icon
+{
+  background: black;
+  stroke: white;
 }
 
 .dark .header-nav-icon {
-
-
-    fill: white
-}
-
+        
+        fill: white;
+    }
