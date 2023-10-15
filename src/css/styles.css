@@ -25,11 +25,7 @@
 @import url('./main-page-support.css');
 
 /* ваша стилізація 5 - Олена */
-@import url('./books-cards.css')
-
-
-/* @import url('./'); */
-@import url('./main-page-support.css');
+@import url('./books-cards.css');
 
 /* dark theme */
 @import url('./dark-theme.css');
