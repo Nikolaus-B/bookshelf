@@ -13,10 +13,11 @@
       referrerpolicy="no-referrer"
     />
 
+    <link rel="stylesheet" href="./css/shopping-list.css" />
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <div id="header"></div>
+    <!-- <div id="header"></div> -->
     <main class="shopping-list container">
       <div class="shopping-list-full">
         <div class="support-block">
@@ -191,16 +192,16 @@
             <img class="btn-icon" src="../img/angle-small.png" alt="btn-icon" />
           </button>
         </div>
-        <section>
+        <section class="shop-box">
           <h1 class="shop-title">
             <span class="text-color">Shopping</span> List
           </h1>
 
-          <ul class="book-list list"></ul>
+          <ul class="book-list"></ul>
         </section>
       </div>
     </main>
-    <script>
+    <!-- <script>
       //  fetch для загрузки содержимого header.html
       fetch('./partials/header.html')
         .then(response => response.text())
@@ -210,10 +211,8 @@
         .catch(error => {
           console.error('Ошибка загрузки header.html', error);
         });
-    </script>
-    <script src="./js/header.js" type="module"></script>
-    <script src="./js/header-refs.js" type="module"></script>
-    <script src="./js/support.js" type="module"></script>
+    </script> -->
+    <script src="./main.js" type="module"></script>
     <script src="./js/shopping-list.js" type="module"></script>
   </body>
 </html>

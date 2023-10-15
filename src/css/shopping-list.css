@@ -50,6 +50,10 @@
   padding-top: 40px;
 }
 
+.shop-box {
+  flex-grow: 2;
+}
+
 .shop-title {
   color: #4f2ee8;
   font-family: DM Sans;
@@ -115,10 +119,6 @@
   width: 100%;
   display: block;
 }
-
-/* .book_li-header {
-  display: block;
-} */
 
 .book_li-btn {
   background-color: #4f2ee8;
@@ -291,7 +291,9 @@
 @media screen and (min-width: 1440px) {
   .container {
     max-width: 1440px;
+    padding: 0px 24px;
   }
+
   .support-block {
     display: block;
   }
