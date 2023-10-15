@@ -6,6 +6,7 @@ import { createCategoryMarkup } from './mark-up';
 const categoriesList = document.querySelector('.categories-list');
 const categoriesContainer = document.querySelector('.categories-container');
 const topBooksContainer = document.querySelector('.best-sellers');
+const preloader = document.querySelector('.preloader')
 
 renderCategories();
 
@@ -35,6 +36,8 @@ function onClick(evt) {
   displayCategoryBooks(currentCategoryId);
   toggleCategoryBtn(currentCategoryId);
 }
+
+
 
 async function renderCategories() {
   try {
@@ -68,6 +71,8 @@ function displayCategoryBooks(category) {
     categoryTitle.textContent = category;
   }
 
+preloader.classList.add('visible');
+
   fetchCategoryBooks(category) 
     .then(response => {
       let content = "";
@@ -82,6 +87,11 @@ category = words.join(' ');
         content += createCategoryMarkup(response[index]);
       }
       topBooksContainer.innerHTML = content;
+
+       setTimeout(() => {
+        
+        preloader.classList.remove('visible');
+      }, 300);
     });
 }
 
