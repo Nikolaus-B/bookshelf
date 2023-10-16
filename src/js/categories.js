@@ -38,8 +38,6 @@ function onClick(evt) {
   toggleCategoryBtn(currentCategoryId);
 }
 
-
-
 async function renderCategories() {
   try {
     const categories = await fetchCategoryList();
@@ -61,10 +59,10 @@ async function renderCategories() {
     categoriesContainer.innerHTML = catchError();
   }
 }
+
 function createListMarkup(el) {
   return `<li class="categories-item"><a href="" data-categoryId = "${el}">${el}</a></li>`;
 }
-
 
 function displayCategoryBooks(category) {
   const categoryTitle = document.getElementById('category-title');
@@ -76,27 +74,6 @@ function displayCategoryBooks(category) {
   fetchCategoryBooks(category)
     .then(response => renderCategoryBooks(category, response) );
 preloader.classList.add('visible');
-
-  fetchCategoryBooks(category) 
-    .then(response => {
-      let content = "";
-      let words = category.split(' ');
-words[words.length - 1] = `<span class="colored">${words[words.length - 1]}</span>`;
-category = words.join(' ');
-  content += `<h2 class="category-title">${category}</h2>`;
-
-  const categoryTitleElement = document.querySelector('.category-title');
-  
-  for (let index = 0; index < response.length; index++) {
-        content += createCategoryMarkup(response[index]);
-      }
-      topBooksContainer.innerHTML = content;
-
-       setTimeout(() => {
-        
-        preloader.classList.remove('visible');
-      }, 300);
-    });
 
 }
 
@@ -112,7 +89,9 @@ function toggleCategoryBtn(categoryId) {
   if (categoryId === "all") {
     allCattegoriesBtn.classList.add('active-category');
   } else {
-    currentSelectedCategoryBtn = document.querySelector(`a[data-categoryId = "${categoryId}"]`);
+    console.log("categoryId="+categoryId)
+    currentSelectedCategoryBtn = categoriesList.querySelector(`a[data-categoryId = "${categoryId}"]`);
+    console.log(currentSelectedCategoryBtn);
     currentSelectedCategoryBtn.classList.add('active-category');
   }
 }
