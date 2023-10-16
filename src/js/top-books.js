@@ -26,9 +26,9 @@ export default async function renderTopBooks() {
     })
   })
 
-  
+
     setTimeout(() => {
-        
+
         preloader.classList.remove('visible');
       }, 300);
 }
@@ -92,12 +92,13 @@ function createTopMarkup(book) {
       />
       <div class="books-overlay">
         <p class="books-overlay-text">quick view</p>
-      </div>
+        </div>
      </div>
       <div class="books-descr">
         <h3 class="books-card-title">${book.title}</h3>
         <p class="books-card-author">${book.author}</p>
-      </div>
+        </div>
+
    </a>`;
 }
 
