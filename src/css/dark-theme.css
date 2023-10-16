@@ -78,3 +78,22 @@
 .dark .book_link-book {
   filter: brightness(0.87) invert(100%);
 }
+.dark .modal-container {
+  background-color: #202024;
+  border: wheat;
+}
+.dark .content-title,
+.dark .content-subtitle,
+.dark .content-desc,
+.dark .modal-tip,
+.dark .modal-btn-add,
+.dark .modal-btn-remove {
+  color: white;
+}
+.dark .close-btn-icon {
+  background-color: #202024;
+  stroke: wheat;
+}
+.dark .content-list-item {
+  filter: brightness(0) invert(1);
+}

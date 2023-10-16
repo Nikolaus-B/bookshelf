@@ -1,4 +1,5 @@
 import amazonMob1x from '../img/amazon-mob-t1x.svg';
+
 import amazonMobT1x from '../img/amazon-mob-1x.svg';
 import basketMob1x from '../img/basket-mob1x.png';
 import basketMob2x from '../img/basket-mob2x.png';
