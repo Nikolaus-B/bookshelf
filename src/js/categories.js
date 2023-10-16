@@ -59,6 +59,7 @@ async function renderCategories() {
     categoriesContainer.innerHTML = catchError();
   }
 }
+
 function createListMarkup(el) {
   return `<li class="categories-item"><a href="" data-categoryId = "${el}">${el}</a></li>`;
 }
@@ -108,7 +109,7 @@ function toggleCategoryBtn(categoryId) {
   if (categoryId === 'all') {
     allCattegoriesBtn.classList.add('active-category');
   } else {
-    currentSelectedCategoryBtn = document.querySelector(
+    currentSelectedCategoryBtn = categoriesList.querySelector(
       `a[data-categoryId = "${categoryId}"]`
     );
     currentSelectedCategoryBtn.classList.add('active-category');
