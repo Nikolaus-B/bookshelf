@@ -1,14 +1,9 @@
-import amazonMob1x from '../img/amazon-mob1x.png';
-import amazonMob2x from '../img/amazon-mob2x.png';
-import amazonMobT1x from '../img/amazon-mob-t1x.png';
-import amazonMobT2x from '../img/amazon-mob-t2x.png';
+import amazonMob1x from '../img/amazon-mob-t1x.svg';
+import amazonMobT1x from '../img/amazon-mob-1x.svg';
 import basketMob1x from '../img/basket-mob1x.png';
 import basketMob2x from '../img/basket-mob2x.png';
-import bookMob1x from '../img/book-mob1x.png';
-import bookMob2x from '../img/book-mob2x.png';
-
-import bookMobT1x from '../img/book-mob-t1x.png';
-import bookMobT2x from '../img/book-mob-t2x.png';
+import bookMob1x from '../img/book-mob1x.svg';
+import bookMobT1x from '../img/book-mob-t1x.svg';
 import imgBookMob1x from '../img/img-book-Mob1x.png';
 import imgBookMob2x from '../img/img-book-Mob2x.png';
 
@@ -63,6 +58,7 @@ function createFullCart() {
         author,
         amazon_product_url,
         list_name,
+        buy_links,
       }) => `
       <li class="book_li book js-card" data-book-id="${_id}">
         <div class="book_li-img">
@@ -101,7 +97,6 @@ function createFullCart() {
                         src="${amazonMob1x}"
                         srcset="
                           ${amazonMob1x} 1x,
-                          ${amazonMob2x} 2x
                         "
                         alt="amazon"
                         width="32"
@@ -112,7 +107,6 @@ function createFullCart() {
                         src="${amazonMobT1x}"
                         srcset="
                           ${amazonMobT1x} 1x,
-                          ${amazonMobT2x} 2x
                         "
                         alt="amazon"
                         width="32"
@@ -121,13 +115,16 @@ function createFullCart() {
                     </a>
                   </li>
                   <li>
-                    <a class="book_link" href="">
+                   <a class="book_link" href="${
+                     buy_links[1].url
+                   }" target="_blank"
+              rel="noopener noreferrer">
+
                       <img
                         class="book_link-book"
                         src="${bookMob1x}"
                         srcset="
                           ${bookMob1x} 1x,
-                          ${bookMob2x} 2x
                         "
                         alt="book"
                         width="16"
@@ -138,7 +135,6 @@ function createFullCart() {
                         src="${bookMobT1x}"
                         srcset="
                           ${bookMobT1x} 1x,
-                          ${bookMobT2x} 2x
                         "
                         alt="book"
                         width="16"

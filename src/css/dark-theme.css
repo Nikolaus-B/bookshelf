@@ -74,3 +74,7 @@
 .dark .book_li {
   background-color: #202024;
 }
+.dark .book_link-amazon,
+.dark .book_link-book {
+  filter: brightness(0.87) invert(100%);
+}

@@ -281,11 +281,13 @@
   .book_link-amazon {
     width: 48px;
     height: 15px;
+    filter: brightness(1);
   }
 
   .book_link-book {
     width: 28px;
     height: 27px;
+    filter: brightness(1);
   }
 }
 @media screen and (min-width: 1440px) {
