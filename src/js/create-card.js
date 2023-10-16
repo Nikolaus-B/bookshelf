@@ -1,7 +1,8 @@
 function isObjectInLocalStorage(key, targetObject) {
   // Отримуємо дані з localStorage за ключем
+
   const storedData = localStorage.getItem(key);
-  console.log(targetObject);
+  console.log(storedData);
   // Перевіряємо, чи дані знайдені
   if (storedData) {
     try {

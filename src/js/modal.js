@@ -1,6 +1,5 @@
 import { createModalWindowMarkup } from './mark-up';
 import { fetchBookInfo } from './api-request';
-import { isObjectInLocalStorage } from './create-card';
 
 async function openModal() {
   const modalOpenBtn = document.querySelector('.modal-btn-add');
@@ -14,6 +13,33 @@ async function openModal() {
   let bookId;
   let booksArr = [];
   const STORAGE_KEY = 'books';
+
+  function isObjectInLocalStorage(objectId) {
+    const STORAGE_KEY = 'books';
+    const data = localStorage.getItem(STORAGE_KEY);
+
+    if (data) {
+      const booksArr = JSON.parse(data);
+      return booksArr.some(book => book._id === objectId);
+    }
+
+    return false;
+  }
+
+  function checkAndToggleButtons(bookId) {
+    const modalOpenBtn = document.querySelector('.modal-btn-add');
+    const modalRemoveBtn = document.querySelector('.modal-btn-remove');
+
+    if (isObjectInLocalStorage(bookId)) {
+      modalOpenBtn.classList.add('visually-hidden');
+      modalRemoveBtn.classList.remove('visually-hidden');
+      modalText.classList.remove('visually-hidden');
+    } else {
+      modalOpenBtn.classList.remove('visually-hidden');
+      modalRemoveBtn.classList.add('visually-hidden');
+      modalText.classList.add('visually-hidden');
+    }
+  }
 
   modalOpenBtn.addEventListener('click', () => {
     modalOpenBtn.classList.add('visually-hidden');
@@ -31,19 +57,8 @@ async function openModal() {
       }
 
       localStorage.setItem(STORAGE_KEY, JSON.stringify(booksArr));
+      checkAndToggleButtons(bookId);
     });
-
-    function isObjectInLocalStorage(objectId) {
-      const STORAGE_KEY = 'books';
-      const data = localStorage.getItem(STORAGE_KEY);
-
-      if (data) {
-        const booksArr = JSON.parse(data);
-        return booksArr.some(book => book._id === objectId);
-      }
-
-      return false;
-    }
   });
 
   modalRemoveBtn.addEventListener('click', () => {
@@ -63,6 +78,7 @@ async function openModal() {
       }
 
       localStorage.setItem(STORAGE_KEY, JSON.stringify(booksArr));
+      checkAndToggleButtons(bookId);
     });
   });
 
@@ -78,18 +94,12 @@ async function openModal() {
       bookId = e.currentTarget.dataset.id;
 
       fetchBookInfo(bookId).then(book => {
-        console.log(book);
-        if (isObjectInLocalStorage(STORAGE_KEY, book)) {
-          console.log("Об'єкт знайдено в localStorage.");
-        } else {
-          console.log("Об'єкт не знайдено в localStorage.");
-        }
-
         modalInfoContainer.insertAdjacentHTML(
           'afterbegin',
           createModalWindowMarkup(book)
         );
       });
+      checkAndToggleButtons(bookId);
     });
   });
 }
