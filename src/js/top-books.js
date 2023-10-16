@@ -6,7 +6,7 @@ import {
 } from './api-request';
 import { createCategoryMarkup, createModalWindowMarkup } from './mark-up';
 import { toggleCategoryBtn } from './categories';
-import { openModal, refs } from './modal';
+import { openModal } from './modal';
 const topBooksContainer = document.querySelector('.best-sellers');
 const preloader = document.querySelector('.preloader');
 
@@ -66,9 +66,12 @@ function createGalleryItem(data) {
   // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   const booksArray = document.querySelectorAll('.books-intem-link');
+  const modalInfoContainer = document.querySelector('.modal-info-container');
+  const modalBtnAdd = document.querySelector('.modal-btn-add');
+  const modalBtnRemove = document.querySelector('.modal-btn-remove');
+  const modalTip = document.querySelector('.modal-tip');
 
   let bookId;
-  let booksArr = [];
   const STORAGE_KEY = 'books';
 
   booksArray.forEach(book => {
@@ -78,31 +81,39 @@ function createGalleryItem(data) {
       openModal();
 
       const book = await fetchBookInfo(bookId);
-      refs.modalInfoContainer.insertAdjacentHTML(
+      modalInfoContainer.insertAdjacentHTML(
         'afterbegin',
         createModalWindowMarkup(book)
       );
     });
   });
 
-  refs.modalBtnAdd.addEventListener('click', async e => {
+  modalBtnAdd.addEventListener('click', async e => {
+    let booksArr = [];
     const book = await fetchBookInfo(bookId);
 
     const data = localStorage.getItem(STORAGE_KEY);
+    const storageData = JSON.parse(data);
 
     if (data !== null) {
       booksArr = JSON.parse(data);
+      booksArr.push(book);
+    } else {
       booksArr.push(book);
     }
 
     localStorage.setItem(STORAGE_KEY, JSON.stringify(booksArr));
 
-    e.target.classList.add('visually-hidden');
-    refs.modalBtnRemove.classList.remove('visually-hidden');
-    refs.modalTip.classList.remove('visually-hidden');
+    const newStorageData = storageData.filter(book => book._id !== bookId);
+    console.log(newStorageData);
+
+    modalBtnAdd.classList.add('visually-hidden');
+    modalBtnRemove.classList.remove('visually-hidden');
+    modalTip.classList.remove('visually-hidden');
   });
 
-  refs.modalBtnRemove.addEventListener('click', async e => {
+  modalBtnRemove.addEventListener('click', async e => {
+    let booksArr = [];
     await fetchBookInfo(bookId);
 
     const data = localStorage.getItem(STORAGE_KEY);
@@ -116,9 +127,9 @@ function createGalleryItem(data) {
 
     localStorage.setItem(STORAGE_KEY, JSON.stringify(booksArr));
 
-    refs.modalBtnAdd.classList.remove('visually-hidden');
-    e.target.classList.add('visually-hidden');
-    refs.modalTip.classList.add('visually-hidden');
+    modalBtnRemove.classList.add('visually-hidden');
+    modalBtnAdd.classList.remove('visually-hidden');
+    modalTip.classList.add('visually-hidden');
   });
 }
 
