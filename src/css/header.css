@@ -353,6 +353,7 @@ input:checked+span {
         padding: 14px 14px;
         width: 184px;
         height: 48px;
+        text-wrap: nowrap;
         border-radius: 18px;
         border: 1.5px solid #111;
         background: var(--violet-color);
@@ -374,6 +375,7 @@ input:checked+span {
         padding: 14px;
         width: 184px;
         height: 48px;
+        text-wrap: nowrap;
         border-radius: 18px;
         border: 1.5px solid #111;
         background: var(--white-color);
