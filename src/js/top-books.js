@@ -1,36 +1,36 @@
-import { fetchCategoryBooks, fetchCategoryList, fetchTopBooks } from './api-request';
+import {
+  fetchCategoryBooks,
+  fetchCategoryList,
+  fetchTopBooks,
+} from './api-request';
 import { createCategoryMarkup } from './mark-up';
 import { toggleCategoryBtn } from './categories';
+import { openModal } from './modal';
 const topBooksContainer = document.querySelector('.best-sellers');
-const preloader = document.querySelector('.preloader')
+const preloader = document.querySelector('.preloader');
 
 renderTopBooks();
 
 export default async function renderTopBooks() {
-
   preloader.classList.add('visible');
 
   const data = await fetchTopBooks();
-  toggleCategoryBtn("all")
+  toggleCategoryBtn('all');
   createGalleryItem(data);
 
-
-  document.querySelectorAll('.books-btn')
-  .forEach((btnItem) => {
+  document.querySelectorAll('.books-btn').forEach(btnItem => {
     btnItem.addEventListener('click', function (event) {
+      let cattegoryId = event.target.dataset.id;
 
-      let cattegoryId = event.target.dataset.id
+      fetchCategoryBooks(cattegoryId).then(response =>
+        renderCategoryBooks(cattegoryId, response)
+      );
+    });
+  });
 
-      fetchCategoryBooks(cattegoryId)
-        .then(response => renderCategoryBooks(cattegoryId, response))
-    })
-  })
-
-
-    setTimeout(() => {
-
-        preloader.classList.remove('visible');
-      }, 300);
+  setTimeout(() => {
+    preloader.classList.remove('visible');
+  }, 300);
 }
 
 function createGalleryItem(data) {
@@ -51,8 +51,9 @@ function createGalleryItem(data) {
             })
             .join('')}
         </div>
-        <button class="books-btn" type="button" data-id="${elements.list_name
-          }">see more</button>
+        <button class="books-btn" type="button" data-id="${
+          elements.list_name
+        }">see more</button>
       </li>
       `;
       })
@@ -60,27 +61,31 @@ function createGalleryItem(data) {
       </div>`;
 
   topBooksContainer.innerHTML = markup;
+
+  openModal();
 }
 
 function renderCategoryBooks(id, content) {
-  toggleCategoryBtn(id)
-  let innerHTML = "";
+  toggleCategoryBtn(id);
+  let innerHTML = '';
 
-  var category = id
+  var category = id;
   let words = category.split(' ');
-  words[words.length - 1] = `<span class="colored">${words[words.length - 1]}</span>`;
+  words[words.length - 1] = `<span class="colored">${
+    words[words.length - 1]
+  }</span>`;
   category = words.join(' ');
   innerHTML += `<h2 class="category-title">${category}</h2>`;
 
   for (let index = 0; index < content.length; index++) {
-    innerHTML += createCategoryMarkup(content[index])
+    innerHTML += createCategoryMarkup(content[index]);
   }
   topBooksContainer.innerHTML = innerHTML;
 
   setTimeout(() => {
     preloader.classList.remove('visible');
   }, 300);
- }
+}
 
 function createTopMarkup(book) {
   return `<a href="#" class="books-intem-link" aria-label="books-item-link" rel="noopener noreferrer" data-id='${book._id}'>
@@ -106,4 +111,4 @@ function createTopMarkup(book) {
    </a>`;
 }
 
-export { createGalleryItem, renderTopBooks, renderCategoryBooks}
+export { createGalleryItem, renderTopBooks, renderCategoryBooks };
