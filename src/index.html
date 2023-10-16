@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bookshelf</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
-    integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="./css/styles.css" />
-</head>
+    <!-- main -->
+    <main>
+      <!-- categories -->
+      <load src="./partials/categories.html" />
+      
+      <!-- modal -->
+      <load src="./partials/modal.html" />
 
-<body>
-  <!-- header -->
-  <load src="./partials/header.html" />
+      <!-- loader -->
+      <load src="./partials/loader.html" />
+    </main>
 
-  <!-- main -->
-  <main>
-    <!-- categories -->
-    <load src="./partials/categories.html" />
+    <script type="module" src="/main.js"></script>
+
+    <script type="module" src="./js/loader.js"></script>
+
+    <script type="module" src="./js/dark-theme.js"></script>
+
+  </body>
+</html>
 
     <!-- modal -->
     <load src="./partials/modal.html" />

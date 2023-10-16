@@ -1,18 +1,35 @@
-import {
-  fetchCategoryBooks,
-  fetchCategoryList,
-  fetchTopBooks,
-  fetchBookInfo,
-} from './api-request';
 import { createCategoryMarkup, createModalWindowMarkup } from './mark-up';
-
+import { toggleCategoryBtn } from './categories';
 const topBooksContainer = document.querySelector('.best-sellers');
+const preloader = document.querySelector('.preloader')
 
 renderTopBooks();
 
 export default async function renderTopBooks() {
+
+  preloader.classList.add('visible');
+
   const data = await fetchTopBooks();
+  toggleCategoryBtn("all")
   createGalleryItem(data);
+
+
+  document.querySelectorAll('.books-btn')
+  .forEach((btnItem) => {
+    btnItem.addEventListener('click', function (event) {
+
+      let cattegoryId = event.target.dataset.id
+
+      fetchCategoryBooks(cattegoryId)
+        .then(response => renderCategoryBooks(cattegoryId, response))
+    })
+  })
+
+  
+    setTimeout(() => {
+        
+        preloader.classList.remove('visible');
+      }, 300);
 }
 
 function createGalleryItem(data) {
@@ -43,21 +60,24 @@ function createGalleryItem(data) {
       </div>`;
 
   topBooksContainer.innerHTML = markup;
-
-  document.querySelectorAll('.books-btn').forEach(btnItem => {
-    btnItem.addEventListener('click', function (event) {
-      let cattegoryId = event.target.dataset.id;
-
-      fetchCategoryBooks(cattegoryId).then(response => {
-        let content = '';
-        for (let index = 0; index < response.length; index++) {
-          content += createCategoryMarkup(response[index]);
-        }
-        topBooksContainer.innerHTML = content;
-      });
-    });
-  });
 }
+
+function renderCategoryBooks(id, content) {
+  toggleCategoryBtn(id)
+  let innerHTML = "";
+
+  var category = id
+  let words = category.split(' ');
+  words[words.length - 1] = `<span class="colored">${words[words.length - 1]}</span>`;
+  category = words.join(' ');
+  innerHTML += `<h2 class="category-title">${category}</h2>`;
+
+  for (let index = 0; index < content.length; index++) {
+    innerHTML += createCategoryMarkup(content[index])
+  }
+  topBooksContainer.innerHTML = innerHTML;
+ }
+
 function createTopMarkup(book) {
   return `<a href="#" class="books-intem-link" aria-label="books-item-link" rel="noopener noreferrer" data-id='${book._id}'>
 
@@ -81,4 +101,4 @@ function createTopMarkup(book) {
    </a>`;
 }
 
-export { createGalleryItem, renderTopBooks };
+export { createGalleryItem, renderTopBooks, renderCategoryBooks}
