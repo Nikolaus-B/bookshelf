@@ -89,9 +89,7 @@ function toggleCategoryBtn(categoryId) {
   if (categoryId === "all") {
     allCattegoriesBtn.classList.add('active-category');
   } else {
-    console.log("categoryId="+categoryId)
     currentSelectedCategoryBtn = categoriesList.querySelector(`a[data-categoryId = "${categoryId}"]`);
-    console.log(currentSelectedCategoryBtn);
     currentSelectedCategoryBtn.classList.add('active-category');
   }
 }
