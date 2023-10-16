@@ -41,7 +41,6 @@ export { createTopMarkup, createCategoryMarkup, createModalWindowMarkup, createS
 
 
 function createCategoryMarkup(book) {
-  console.log(book)
   return `
   <div class="image-container">
        <img class="book-image" src="${book.book_image}" alt="${book.title}">
@@ -49,7 +48,7 @@ function createCategoryMarkup(book) {
          <h1 class="title">${book.title}</h1>
          <p class="author">${book.author}</p>
        </div>
-       </div>`;
+  </div>`;
 }
 
 
