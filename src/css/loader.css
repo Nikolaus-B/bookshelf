@@ -1,0 +1,66 @@
+
+.preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 2;
+transition: 1ml all;
+    opacity: 1;
+    visibility: visible;
+}
+
+.loader {
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: #4f2ee8;
+    /* Оновлений колір */
+    animation: wave 1s ease-in infinite;
+}
+
+.done {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+@keyframes wave {
+    0% {
+        box-shadow:
+            0 0 0 0px rgba(79, 46, 232, 1),
+            /* Оновлений колір */
+            0 0 0 20px rgba(79, 46, 232, 0.2),
+            /* Оновлений колір */
+            0 0 0 40px rgba(79, 46, 232, 0.6),
+            /* Оновлений колір */
+            0 0 0 60px rgba(79, 46, 232, 0.4),
+            /* Оновлений колір */
+            0 0 0 80px rgba(79, 46, 232, 0.2);
+        /* Оновлений колір */
+    }
+
+    100% {
+        box-shadow:
+            0 0 0 80px rgba(79, 46, 232, 0),
+            /* Оновлений колір */
+            0 0 0 60px rgba(79, 46, 232, 0.2),
+            /* Оновлений колір */
+            0 0 0 40px rgba(79, 46, 232, 0.4),
+            /* Оновлений колір */
+            0 0 0 20px rgba(79, 46, 232, 0.6),
+            /* Оновлений колір */
+            0 0 0 0px rgba(79, 46, 232, 1);
+        /* Оновлений колір */
+    }
+}

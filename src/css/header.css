@@ -406,14 +406,102 @@ input:checked + span {
   }
 
   /* .header-user-name {
-        color: var(--white-color);
-        font-size: 22px;
-        font-weight: 700;
-        line-height: normal;
-        letter-spacing: -0.44px;
+
+    .header-nav {
+        display: block;
+    }
+
+    .header-nav-list {
+        gap: 16px;
+    }
+
+    .header-nav-item-link {
+        color: var(--black-second)
+    }
+
+    .header-nav-icon {
+        fill: var(--black-second);
+    }
+
+    .header-button {
+        display: none;
+        width: 37px;
+        height: 37px;
+    }
+
+    .header-hamburger-icon {
+        display: none;
+    }
+
+    /* .header-button-user {
+        display: block;
     } */
 
-  .header-icon-user {
+  .header-sign-up {
+    display: flex;
+    align-items: center;
+    gap: 89px;
+    padding: 14px 14px;
+    width: 184px;
+    height: 48px;
+    text-wrap: nowrap;
+    border-radius: 18px;
+    border: 1.5px solid #111;
+    background: var(--violet-color);
+    color: var(--white-color);
+    font-weight: 500;
+    line-height: 1.28;
+    letter-spacing: -0.56px;
+    font-size: 14px;
+  }
+
+  .header-sign-up-icon {
+    stroke: var(--yellow-color);
+  }
+
+  .header-log-out {
+    display: flex;
+    align-items: center;
+    gap: 89px;
+    padding: 14px;
+    width: 184px;
+    height: 48px;
+    text-wrap: nowrap;
+    border-radius: 18px;
+    border: 1.5px solid #111;
+    background: var(--white-color);
+    color: var(--black-second);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.28;
+    letter-spacing: -0.56px;
+  }
+
+  .header-user-btn {
+    width: 184px;
+    height: 45px;
+    padding: 4px 12px;
+    display: flex;
+    align-items: center;
+    border-radius: 36px;
+    background: #4f2ee8;
+  }
+
+  .header-user-photo {
+    width: 37px;
+    height: 37px;
+    border-radius: 37px;
+    margin-right: auto;
+  }
+
+  .header-user-name {
+    color: var(--white-color);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.44px;
+  }
+  */ .header-icon-user {
     stroke: var(--white-color);
   }
 

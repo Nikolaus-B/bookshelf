@@ -2,6 +2,9 @@
 @import url('./reset.css');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap');
 
+/* loader */
+@import url('./loader.css');
+
 /* header */
 @import url('./header.css');
 
@@ -22,9 +25,10 @@
 @import url('./support.css');
 
 /* ваша стилізація 4 */
-
-/* @import url('./'); */
 @import url('./main-page-support.css');
+
+/* ваша стилізація 5 - Олена */
+@import url('./books-cards.css');
 
 /* dark theme */
 @import url('./dark-theme.css');
