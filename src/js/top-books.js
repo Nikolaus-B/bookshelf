@@ -76,6 +76,10 @@ function renderCategoryBooks(id, content) {
     innerHTML += createCategoryMarkup(content[index])
   }
   topBooksContainer.innerHTML = innerHTML;
+
+  setTimeout(() => {
+    preloader.classList.remove('visible');
+  }, 300);
  }
 
 function createTopMarkup(book) {
