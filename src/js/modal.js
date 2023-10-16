@@ -1,18 +1,30 @@
-const backdrop = document.querySelector('.backdrop');
-const modalCloseBtn = document.querySelector('[data-action="modal-close"]');
-const modalInfoContainer = document.querySelector('.modal-info-container');
+export const refs = {
+  body: document.querySelector('body'),
+  backdrop: document.querySelector('.backdrop'),
+  modalCloseBtn: document.querySelector('[data-action="modal-close"]'),
+  modalInfoContainer: document.querySelector('.modal-info-container'),
+  modalBtnAdd: document.querySelector('.modal-btn-add'),
+  modalBtnRemove: document.querySelector('.modal-btn-remove'),
+  modalTip: document.querySelector('.modal-tip'),
+};
 
-modalCloseBtn.addEventListener('click', onCloseModal);
-backdrop.addEventListener('click', onBackdropClick);
+// --------------------------------------------------
+
+refs.modalCloseBtn.addEventListener('click', onCloseModal);
+refs.backdrop.addEventListener('click', onBackdropClick);
 window.addEventListener('keydown', onEscKeyPress);
 
+// --------------------------------------------------
+
 export function openModal() {
-  backdrop.classList.remove('is-hidden');
+  refs.backdrop.classList.remove('is-hidden');
+  refs.body.style.overflow = 'hidden';
 }
 
 function onCloseModal(e) {
-  backdrop.classList.add('is-hidden');
-  modalInfoContainer.innerHTML = '';
+  refs.backdrop.classList.add('is-hidden');
+  refs.body.style.overflow = 'auto';
+  refs.modalInfoContainer.innerHTML = '';
 }
 
 function onBackdropClick(e) {

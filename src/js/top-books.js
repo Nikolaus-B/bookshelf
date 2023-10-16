@@ -5,7 +5,7 @@ import {
   fetchBookInfo,
 } from './api-request';
 import { createCategoryMarkup, createModalWindowMarkup } from './mark-up';
-import { openModal } from './modal';
+import { refs, openModal } from './modal';
 
 const topBooksContainer = document.querySelector('.best-sellers');
 
@@ -61,11 +61,7 @@ function createGalleryItem(data) {
 
   // ++++++++++++++++++++++++ MODAL +++++++++++++++++++++++++++++++
 
-  const modalInfoContainer = document.querySelector('.modal-info-container');
   const booksArray = document.querySelectorAll('.books-intem-link');
-  const modalBtnAdd = document.querySelector('.modal-btn-add');
-  const modalBtnRemove = document.querySelector('.modal-btn-remove');
-  const modalTip = document.querySelector('.modal-tip');
 
   let bookId;
   let booksArr = [];
@@ -78,34 +74,31 @@ function createGalleryItem(data) {
       openModal();
 
       const book = await fetchBookInfo(bookId);
-      modalInfoContainer.insertAdjacentHTML(
+      refs.modalInfoContainer.insertAdjacentHTML(
         'afterbegin',
         createModalWindowMarkup(book)
       );
     });
   });
 
-  modalBtnAdd.addEventListener('click', async e => {
+  refs.modalBtnAdd.addEventListener('click', async e => {
     const book = await fetchBookInfo(bookId);
 
     const data = localStorage.getItem(STORAGE_KEY);
 
     if (data !== null) {
       booksArr = JSON.parse(data);
-      console.log(booksArr);
-      booksArr.push(book);
-    } else {
       booksArr.push(book);
     }
 
     localStorage.setItem(STORAGE_KEY, JSON.stringify(booksArr));
 
-    modalBtnAdd.classList.add('visually-hidden');
-    modalBtnRemove.classList.remove('visually-hidden');
-    modalTip.classList.remove('visually-hidden');
+    e.target.classList.add('visually-hidden');
+    refs.modalBtnRemove.classList.remove('visually-hidden');
+    refs.modalTip.classList.remove('visually-hidden');
   });
 
-  modalBtnRemove.addEventListener('click', async e => {
+  refs.modalBtnRemove.addEventListener('click', async e => {
     await fetchBookInfo(bookId);
 
     const data = localStorage.getItem(STORAGE_KEY);
@@ -119,13 +112,13 @@ function createGalleryItem(data) {
 
     localStorage.setItem(STORAGE_KEY, JSON.stringify(booksArr));
 
-    modalBtnAdd.classList.remove('visually-hidden');
-    modalBtnRemove.classList.add('visually-hidden');
-    modalTip.classList.add('visually-hidden');
+    refs.modalBtnAdd.classList.remove('visually-hidden');
+    e.target.classList.add('visually-hidden');
+    refs.modalTip.classList.add('visually-hidden');
   });
 }
 
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// +++++++++++++++++++++++ MODAL END +++++++++++++++++++++++++++++
 
 function createTopMarkup(book) {
   return `<a href="#" class="books-intem-link" aria-label="books-item-link" rel="noopener noreferrer" data-id='${book._id}'>
