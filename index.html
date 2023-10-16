@@ -13,8 +13,8 @@
       referrerpolicy="no-referrer"
     />
     
-    <script type="module" crossorigin src="/bookshelf/assets/index-0507c853.js"></script>
-    <link rel="stylesheet" href="/bookshelf/assets/index-fd050965.css">
+    <script type="module" crossorigin src="/bookshelf/assets/index-970aca1f.js"></script>
+    <link rel="stylesheet" href="/bookshelf/assets/index-0f0c1345.css">
   </head>
   <body>
     <!-- header -->
@@ -308,9 +308,31 @@
   </div>
 </section>
 
-      
+
       <!-- modal -->
-      
+      <div class="backdrop is-hidden">
+  <div class="modal-container">
+    <button class="modal-close-btn" type="button" data-action="modal-close">
+      <svg class="close-btn-icon">
+        <use href="/bookshelf/assets/icons-fcbfc5e4.svg#close"></use>
+      </svg>
+    </button>
+    <div class="modal-info-container"></div>
+    <div class="modal-btn-wrap">
+      <button class="btn modal-btn-add" type="button">
+        Add to shopping list
+      </button>
+      <button class="btn modal-btn-remove visually-hidden" type="button">
+        Remove from shopping list
+      </button>
+      <p class="modal-tip visually-hidden">
+        Congratulations! You have added the book to the shopping list. To
+        delete, press the button "Remove from the shopping list".
+      </p>
+    </div>
+  </div>
+</div>
+
 
       <!-- loader -->
       <div class="preloader">
@@ -325,5 +347,6 @@
 
     
 
+    
   </body>
 </html>
