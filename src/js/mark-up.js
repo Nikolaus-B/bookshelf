@@ -49,7 +49,7 @@ function createCategoryMarkup(book) {
          <h1 class="title">${book.title}</h1>
          <p class="author">${book.author}</p>
        </div>
-       </div>`;
+  </div>`;
 }
 
 function createShoppingListMarkup(book) {
