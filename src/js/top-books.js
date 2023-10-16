@@ -5,7 +5,6 @@ import {
   fetchBookInfo,
 } from './api-request';
 import { createCategoryMarkup, createModalWindowMarkup } from './mark-up';
-import { refs, openModal } from './modal';
 
 const topBooksContainer = document.querySelector('.best-sellers');
 
@@ -58,68 +57,7 @@ function createGalleryItem(data) {
       });
     });
   });
-
-  // ++++++++++++++++++++++++ MODAL +++++++++++++++++++++++++++++++
-
-  const booksArray = document.querySelectorAll('.books-intem-link');
-
-  let bookId;
-  let booksArr = [];
-  const STORAGE_KEY = 'books';
-
-  booksArray.forEach(book => {
-    book.addEventListener('click', async e => {
-      bookId = e.currentTarget.dataset.id;
-
-      openModal();
-
-      const book = await fetchBookInfo(bookId);
-      refs.modalInfoContainer.insertAdjacentHTML(
-        'afterbegin',
-        createModalWindowMarkup(book)
-      );
-    });
-  });
-
-  refs.modalBtnAdd.addEventListener('click', async e => {
-    const book = await fetchBookInfo(bookId);
-
-    const data = localStorage.getItem(STORAGE_KEY);
-
-    if (data !== null) {
-      booksArr = JSON.parse(data);
-      booksArr.push(book);
-    }
-
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(booksArr));
-
-    e.target.classList.add('visually-hidden');
-    refs.modalBtnRemove.classList.remove('visually-hidden');
-    refs.modalTip.classList.remove('visually-hidden');
-  });
-
-  refs.modalBtnRemove.addEventListener('click', async e => {
-    await fetchBookInfo(bookId);
-
-    const data = localStorage.getItem(STORAGE_KEY);
-    booksArr = JSON.parse(data) || [];
-
-    const indexOfObject = booksArr.findIndex(obj => obj._id === bookId);
-
-    if (indexOfObject !== -1) {
-      booksArr.splice(indexOfObject, 1);
-    }
-
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(booksArr));
-
-    refs.modalBtnAdd.classList.remove('visually-hidden');
-    e.target.classList.add('visually-hidden');
-    refs.modalTip.classList.add('visually-hidden');
-  });
 }
-
-// +++++++++++++++++++++++ MODAL END +++++++++++++++++++++++++++++
-
 function createTopMarkup(book) {
   return `<a href="#" class="books-intem-link" aria-label="books-item-link" rel="noopener noreferrer" data-id='${book._id}'>
 
