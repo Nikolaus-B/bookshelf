@@ -1,38 +1,107 @@
-export const refs = {
-  body: document.querySelector('body'),
-  backdrop: document.querySelector('.backdrop'),
-  modalCloseBtn: document.querySelector('[data-action="modal-close"]'),
-  modalInfoContainer: document.querySelector('.modal-info-container'),
-  modalBtnAdd: document.querySelector('.modal-btn-add'),
-  modalBtnRemove: document.querySelector('.modal-btn-remove'),
-  modalTip: document.querySelector('.modal-tip'),
-};
+import { createModalWindowMarkup } from './mark-up';
+import { fetchBookInfo } from './api-request';
 
-// --------------------------------------------------
+async function openModal() {
+  const modalOpenBtn = document.querySelector('.modal-btn-add');
+  const modalRemoveBtn = document.querySelector('.modal-btn-remove');
+  const allMainBooks = document.querySelectorAll('.books-intem-link');
+  const backdrop = document.querySelector('.backdrop');
+  const closeModalBtn = document.querySelector('.close-btn-icon');
+  const modalInfoContainer = document.querySelector('.modal-info-container');
+  const modalText = document.querySelector('.modal-tip');
 
-refs.modalCloseBtn.addEventListener('click', onCloseModal);
-refs.backdrop.addEventListener('click', onBackdropClick);
-window.addEventListener('keydown', onEscKeyPress);
+  let bookId;
+  let booksArr = [];
+  const STORAGE_KEY = 'books';
 
-// --------------------------------------------------
+  function isObjectInLocalStorage(objectId) {
+    const STORAGE_KEY = 'books';
+    const data = localStorage.getItem(STORAGE_KEY);
 
-export function openModal() {
-  refs.backdrop.classList.remove('is-hidden');
-  refs.body.style.overflow = 'hidden';
-}
+    if (data) {
+      const booksArr = JSON.parse(data);
+      return booksArr.some(book => book._id === objectId);
+    }
 
-function onCloseModal(e) {
-  refs.backdrop.classList.add('is-hidden');
-  refs.body.style.overflow = 'auto';
-  refs.modalInfoContainer.innerHTML = '';
-}
-
-function onBackdropClick(e) {
-  if (e.currentTarget === e.target) {
-    onCloseModal();
+    return false;
   }
+
+  function checkAndToggleButtons(bookId) {
+    const modalOpenBtn = document.querySelector('.modal-btn-add');
+    const modalRemoveBtn = document.querySelector('.modal-btn-remove');
+
+    if (isObjectInLocalStorage(bookId)) {
+      modalOpenBtn.classList.add('visually-hidden');
+      modalRemoveBtn.classList.remove('visually-hidden');
+      modalText.classList.remove('visually-hidden');
+    } else {
+      modalOpenBtn.classList.remove('visually-hidden');
+      modalRemoveBtn.classList.add('visually-hidden');
+      modalText.classList.add('visually-hidden');
+    }
+  }
+
+  modalOpenBtn.addEventListener('click', () => {
+    modalOpenBtn.classList.add('visually-hidden');
+    modalRemoveBtn.classList.remove('visually-hidden');
+    modalText.classList.remove('visually-hidden');
+
+    fetchBookInfo(bookId).then(book => {
+      const data = localStorage.getItem(STORAGE_KEY);
+
+      if (data !== null) {
+        booksArr = JSON.parse(data);
+        booksArr.push(book);
+      } else {
+        booksArr.push(book);
+      }
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(booksArr));
+      checkAndToggleButtons(bookId);
+    });
+  });
+
+  modalRemoveBtn.addEventListener('click', () => {
+    modalRemoveBtn.classList.add('visually-hidden');
+    modalOpenBtn.classList.remove('visually-hidden');
+    modalText.classList.add('visually-hidden');
+
+    fetchBookInfo(bookId).then(book => {
+      const data = localStorage.getItem(STORAGE_KEY);
+
+      booksArr = JSON.parse(data) || [];
+
+      const indexOfObject = booksArr.findIndex(obj => obj._id === bookId);
+
+      if (indexOfObject !== -1) {
+        booksArr.splice(indexOfObject, 1);
+      }
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(booksArr));
+      checkAndToggleButtons(bookId);
+    });
+  });
+
+  closeModalBtn.addEventListener('click', () => {
+    backdrop.classList.add('is-hidden');
+    modalInfoContainer.innerHTML = '';
+  });
+
+  allMainBooks.forEach(bookEl => {
+    bookEl.addEventListener('click', e => {
+      backdrop.classList.remove('is-hidden');
+
+      bookId = e.currentTarget.dataset.id;
+
+      fetchBookInfo(bookId).then(book => {
+        modalInfoContainer.insertAdjacentHTML(
+          'afterbegin',
+          createModalWindowMarkup(book)
+        );
+      });
+      checkAndToggleButtons(bookId);
+    });
+  });
 }
 
-function onEscKeyPress(e) {
-  onCloseModal();
-}
+export { openModal };
