@@ -42,7 +42,6 @@ function createTopMarkup(book) {
 }
 
 function createCategoryMarkup(book) {
-  console.log(book);
   return `
   <div class="image-container">
        <img class="book-image" src="${book.book_image}" alt="${book.title}">
