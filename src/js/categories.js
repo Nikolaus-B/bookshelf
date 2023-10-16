@@ -7,14 +7,14 @@ import { renderCategoryBooks } from './top-books';
 const categoriesList = document.querySelector('.categories-list');
 const categoriesContainer = document.querySelector('.categories-container');
 const topBooksContainer = document.querySelector('.best-sellers');
-const preloader = document.querySelector('.preloader')
+const preloader = document.querySelector('.preloader');
 
 renderCategories();
 
 categoriesList.addEventListener('click', onClick);
 
 let currentSelectedCategoryBtn = null;
-let allCattegoriesBtn = document.querySelector(".all-categories-btn");
+let allCattegoriesBtn = document.querySelector('.all-categories-btn');
 
 function onClick(evt) {
   evt.preventDefault();
@@ -70,26 +70,27 @@ function displayCategoryBooks(category) {
     categoryTitle.textContent = category;
   }
 
-
-  fetchCategoryBooks(category)
-    .then(response => renderCategoryBooks(category, response) );
-preloader.classList.add('visible');
-
+  fetchCategoryBooks(category).then(response =>
+    renderCategoryBooks(category, response)
+  );
+  preloader.classList.add('visible');
 }
 
 function toggleCategoryBtn(categoryId) {
   if (currentSelectedCategoryBtn != null) {
-    currentSelectedCategoryBtn.classList.remove('active-category')
+    currentSelectedCategoryBtn.classList.remove('active-category');
   }
 
   if (allCattegoriesBtn != null) {
-    allCattegoriesBtn.classList.remove('active-category')
+    allCattegoriesBtn.classList.remove('active-category');
   }
 
-  if (categoryId === "all") {
+  if (categoryId === 'all') {
     allCattegoriesBtn.classList.add('active-category');
   } else {
-    currentSelectedCategoryBtn = categoriesList.querySelector(`a[data-categoryId = "${categoryId}"]`);
+    currentSelectedCategoryBtn = categoriesList.querySelector(
+      `a[data-categoryId = "${categoryId}"]`
+    );
     currentSelectedCategoryBtn.classList.add('active-category');
   }
 }
