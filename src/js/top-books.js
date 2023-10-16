@@ -6,7 +6,6 @@ import {
 import { createCategoryMarkup } from './mark-up';
 import { toggleCategoryBtn } from './categories';
 import { openModal } from './modal';
-
 const topBooksContainer = document.querySelector('.best-sellers');
 const preloader = document.querySelector('.preloader');
 
@@ -28,13 +27,6 @@ export default async function renderTopBooks() {
       );
     });
   });
-
-  setTimeout(() => {
-    preloader.classList.remove('visible');
-  }, 300);
-  fetchCategoryBooks(cattegoryId).then(response =>
-    renderCategoryBooks(cattegoryId, response)
-  );
 
   setTimeout(() => {
     preloader.classList.remove('visible');

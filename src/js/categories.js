@@ -74,27 +74,6 @@ function displayCategoryBooks(category) {
     renderCategoryBooks(category, response)
   );
   preloader.classList.add('visible');
-
-  fetchCategoryBooks(category).then(response => {
-    let content = '';
-    let words = category.split(' ');
-    words[words.length - 1] = `<span class="colored">${
-      words[words.length - 1]
-    }</span>`;
-    category = words.join(' ');
-    content += `<h2 class="category-title">${category}</h2>`;
-
-    const categoryTitleElement = document.querySelector('.category-title');
-
-    for (let index = 0; index < response.length; index++) {
-      content += createCategoryMarkup(response[index]);
-    }
-    topBooksContainer.innerHTML = content;
-
-    setTimeout(() => {
-      preloader.classList.remove('visible');
-    }, 300);
-  });
 }
 
 function toggleCategoryBtn(categoryId) {
