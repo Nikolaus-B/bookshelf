@@ -60,8 +60,6 @@
 
 @media (max-width: 768px) {
   .dark .header-nav-item {
-    color: white;
-
     color: black;
   }
 }
@@ -121,3 +119,4 @@
 .dark .modal-btn-remove {
   background-color: #202024;
 }
+

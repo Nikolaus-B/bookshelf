@@ -82,7 +82,7 @@
   }
 
   .categories-container {
-    min-width: 356px;
+    max-width: 356px;
     max-height: 472px;
     overflow: auto;
   }
