@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/bookshelf/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping-list</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    
+    
+    <script type="module" crossorigin src="/bookshelf/assets/shopping-list-9256e01e.js"></script>
+    <link rel="modulepreload" crossorigin href="/bookshelf/assets/dark-theme-9416c707.js">
+    <link rel="stylesheet" href="/bookshelf/assets/dark-theme-f1f93a9a.css">
+    <link rel="stylesheet" href="/bookshelf/assets/shopping-list-d6194ede.css">
+  </head>
+  <body>
+    <header class="header js-header">
+      <section class="header-section container">
+        <div class="header-container">
+          <div>
+            <a href="index.html" class="logo-link">
+              <svg width="24px" height="24px">
+                <use href="/bookshelf/assets/icons-fcbfc5e4.svg#logo"></use>
+              </svg>
+              <svg class="header-logo-text" width="77px" height="14px">
+                <use href="/bookshelf/assets/icons-fcbfc5e4.svg#icon-bookshelf"></use>
+              </svg>
+            </a>
+          </div>
+          <nav class="header-nav">
+            <ul class="header-nav-list">
+              <li>
+                <a href="../index.html" class="header-nav-item-link"
+                  ><span class="header-nav-item">Home</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="../shopping-list.html"
+                  class="header-nav-item-link current-shop-list"
+                  ><span class="header-nav-item">Shopping list</span
+                  ><svg class="header-nav-icon" width="20px" height="20px">
+                    <use href="/bookshelf/assets/icons-fcbfc5e4.svg#cart"></use></svg
+                ></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="header-btn-container">
+          <div class="checkbox-container">
+            <label id="switch" class="switch">
+              <input type="checkbox" id="slider" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <button class="header-button js-open-menu">
+            <svg class="header-hamburger-icon" width="28px" height="28px">
+              <use href="/bookshelf/assets/icons-fcbfc5e4.svg#rename" class="hamburger"></use>
+            </svg>
+            <svg class="header-close-icon" width="28px" height="28px">
+              <use href="/bookshelf/assets/icons-fcbfc5e4.svg#close"></use>
+            </svg>
+          </button>
+          <!-- <button class="header-button-user">
+        <svg class="header-user-icon" width="19px" height="19px">
+          <use href="../img/icons.svg#user"></use>
+        </svg>
+      </button> -->
+          <button class="header-sign-up">
+            Sign up<svg class="header-sign-up-icon" width="20px" height="20px">
+              <use href="/bookshelf/assets/icons-fcbfc5e4.svg#arrow-right"></use>
+            </svg>
+          </button>
+          <button class="header-user-btn visually-hidden">
+            <img src="" alt="" class="header-user-photo" />
+            <p class="header-user-name">User</p>
+            <svg class="header-icon-user" width="23px" height="26px">
+              <use href="/bookshelf/assets/icons-fcbfc5e4.svg#icon-caret-down"></use>
+            </svg>
+          </button>
+          <button class="header-log-out visually-hidden">
+            Log out<svg class="header-sign-up-icon" width="20px" height="20px">
+              <use href="/bookshelf/assets/icons-fcbfc5e4.svg#arrow-right"></use>
+            </svg>
+          </button>
+        </div>
+      </section>
+    </header>
+    <div class="mob-menu js-menu-container">
+      <div class="mob-menu-wraper">
+        <div class="menu-contain">
+          <button class="menu-sign-up visually-hidden">
+            Sign up<svg class="header-sign-up-icon" width="20px" height="20px">
+              <use href="/bookshelf/assets/icons-fcbfc5e4.svg#arrow-right"></use>
+            </svg>
+          </button>
+          <ul class="header-list">
+            <li class="mob-menu-item">
+              <a href="../index.html" class="header-nav-item-link current-home"
+                ><span class="header-nav-item">Home</span></a
+              >
+            </li>
+            <li class="mob-menu-item">
+              <a href="../shopping-list.html" class="header-nav-item-link"
+                ><span class="header-nav-item nav-item-shop">Shopping list</span
+                ><svg class="header-nav-icon" width="20px" height="20px">
+                  <use href="/bookshelf/assets/icons-fcbfc5e4.svg#cart"></use></svg
+              ></a>
+            </li>
+          </ul>
+          <button class="menu-log-out visually-hidden">
+            Log out<svg class="header-sign-up-icon" width="20px" height="20px">
+              <use href="/bookshelf/assets/icons-fcbfc5e4.svg#arrow-right"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <main class="shopping-list container">
+      <div class="shopping-list-full">
+        <div class="support-block">
+          <div class="support-container">
+            <div class="support-content">
+              <h3 class="support-text">Support Ukraine</h3>
+              <img
+                srcset="../img/coat_arms_2x.png 2x, ../img/coat_arms.png 1x"
+                src="../img/coat_arms.png"
+                alt="coat_arms_Ukraine"
+                width="20"
+              />
+            </div>
+            <ul class="support-list" id="logoList">
+              <li class="support-item">
+                <span>01</span>
+                <a
+                  href="https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="support-link"
+                  ><img
+                    srcset="
+                      ../img/save_the_children_2x.png 2x,
+                      ../img/save_the_children.png    1x
+                    "
+                    width="131"
+                    height="32"
+                    class="support-img"
+                    src="../img/save_the_children.png"
+                    alt="savethechildren"
+                /></a>
+              </li>
+              <li class="support-item">
+                <span>02</span>
+                <a
+                  href="https://www.projecthope.org/country/ukraine/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="support-link"
+                  ><img
+                    srcset="../img/hope_2x.png 2x, ../img/hope.png 1x"
+                    width="62"
+                    height="32"
+                    class="support-img"
+                    src="../img/hope.png"
+                    alt="projecthope"
+                /></a>
+              </li>
+              <li class="support-item">
+                <span>03</span>
+                <a
+                  href="https://internationalmedicalcorps.org/country/ukraine/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="support-link"
+                  ><img
+                    srcset="../img/imc_2x.png 2x, ../img/imc.png 1x"
+                    width="101"
+                    height="32"
+                    class="support-img"
+                    src="../img/imc.png"
+                    alt="internationalmedicalcorps"
+                /></a>
+              </li>
+              <li class="support-item">
+                <span>04</span>
+                <a
+                  href="https://www.razomforukraine.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="support-link"
+                  ><img
+                    srcset="../img/razom_2x.png 2x, ../img/razom.png 1x"
+                    width="82"
+                    height="32"
+                    class="support-img"
+                    src="../img/razom.png"
+                    alt="razomforukraine"
+                /></a>
+              </li>
+              <li class="support-item">
+                <span>05</span>
+                <a
+                  href="https://www.actionagainsthunger.org/location/europe/ukraine/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="support-link"
+                  ><img
+                    srcset="../img/hunger_2x.png 2x, ../img/hunger.png 1x"
+                    width="55"
+                    height="32"
+                    class="support-img"
+                    src="../img/hunger.png"
+                    alt="actionagainsthunger"
+                /></a>
+              </li>
+              <li class="support-item">
+                <span>06</span>
+                <a
+                  href="https://prytulafoundation.org/en"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="support-link"
+                  ><img
+                    srcset="../img/prytula_2x.png 2x, ../img/prytula.png 1x"
+                    width="115"
+                    height="32"
+                    class="support-img"
+                    src="../img/prytula.png"
+                    alt="prytulafoundation"
+                /></a>
+              </li>
+              <li class="support-item">
+                <span>07</span>
+                <a
+                  href="https://www.msf.org/ukraine"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="support-link"
+                  ><img
+                    srcset="../img/msf_2x.png 2x, ../img/msf.png 1x"
+                    width="94"
+                    height="32"
+                    class="support-img"
+                    src="../img/msf.png"
+                    alt="msf"
+                /></a>
+              </li>
+              <li class="support-item">
+                <span>08</span>
+                <a
+                  href="https://www.wvi.org/emergencies/ukraine"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="support-link"
+                  ><img
+                    srcset="
+                      ../img/world_vision_2x.png 2x,
+                      ../img/world_vision.png    1x
+                    "
+                    width="81"
+                    height="32"
+                    class="support-img"
+                    src="../img/world_vision.png"
+                    alt="wvi"
+                /></a>
+              </li>
+              <li class="support-item">
+                <span>09</span>
+                <a
+                  href="https://u24.gov.ua/uk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="support-link"
+                  ><img
+                    srcset="../img/united_24_2x.png 2x, ../img/united_24.png 1x"
+                    width="114"
+                    height="32"
+                    class="support-img"
+                    src="../img/united_24.png"
+                    alt="u24"
+                /></a>
+              </li>
+            </ul>
+          </div>
+          <button
+            type="button"
+            class="support-btn support-link"
+            id="toggleLogo"
+          >
+            <img class="btn-icon" src="../img/angle-small.png" alt="btn-icon" />
+          </button>
+        </div>
+        <section class="shop-box">
+          <div>
+            <h1 class="shop-title">
+              <span class="text-color">Shopping</span> List
+            </h1>
+
+            <ul class="book-list" id="paginated-list" aria-live="polite"></ul>
+          </div>
+          <!-- <div>
+            <nav class="pagination-container">
+              <button
+                class="pagination-button-left"
+                id="prev-button"
+                title="Previous page"
+                aria-label="Previous page"
+              >
+                <svg class="icon-pagination-left" width="24px" height="24px">
+                  <use href="./img/icons.svg#icon-pagination-left"></use>
+                </svg>
+              </button>
+
+              <div
+                id="pagination-numbers"
+                class="pagination-number-container"
+              ></div>
+
+              <button
+                class="pagination-button-right"
+                id="next-button"
+                title="Next page"
+                aria-label="Next page"
+              >
+                <svg class="icon-pagination-right" width="24px" height="24px">
+                  <use href="./img/icons.svg#icon-pagination-right"></use>
+                </svg>
+              </button>
+            </nav>
+          </div> -->
+        </section>
+      </div>
+    </main>
+    
+    
+  </body>
+</html>
