@@ -89,6 +89,8 @@ async function openModal() {
 
   allMainBooks.forEach(bookEl => {
     bookEl.addEventListener('click', e => {
+      e.preventDefault();
+
       backdrop.classList.remove('is-hidden');
 
       bookId = e.currentTarget.dataset.id;
