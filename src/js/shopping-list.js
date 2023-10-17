@@ -73,7 +73,7 @@ function createFullCart() {
               <div class="book_li-header">
                 <button class="book_li-btn js-card__delete">
                   <img
-                    class="book_li-icon "
+                    class="book_li-icon js-card__delete"
                     src="${basketMob1x}"
                     srcset="
                       ${basketMob1x} 1x,

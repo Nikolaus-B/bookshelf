@@ -69,7 +69,8 @@
 }
 
 .dark .category-title,
-.dark .text-color {
+.dark .text-color,
+.dark .empty-list-text {
   color: white;
 }
 
