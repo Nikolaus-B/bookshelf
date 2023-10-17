@@ -107,3 +107,7 @@
 .dark .preloader {
   background-color: #202024;
 }
+.dark .modal-btn-add,
+.dark .modal-btn-remove {
+  background-color: #202024;
+}
