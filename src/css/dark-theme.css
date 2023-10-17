@@ -57,6 +57,8 @@
 
 @media (max-width: 768px) {
   .dark .header-nav-item {
+    color: white;
+
     color: black;
   }
 }
@@ -65,10 +67,47 @@
   color: white;
 }
 
+.dark .text-color,
+.dark .book_li-title,
+.dark .book_li-description,
+.book_li-description {
+  color: white;
+}
+.dark .book_li {
+  background-color: #202024;
+}
+.dark .book_link-amazon,
+.dark .book_link-book {
+  filter: brightness(0.87) invert(100%);
+}
+.dark .modal-container {
+  background-color: #202024;
+  border: wheat;
+}
+.dark .content-title,
+.dark .content-subtitle,
+.dark .content-desc,
+.dark .modal-tip,
+.dark .modal-btn-add,
+.dark .modal-btn-remove {
+  color: white;
+}
+.dark .close-btn-icon {
+  background-color: #202024;
+  stroke: wheat;
+}
+.dark .content-list-item {
+  filter: brightness(0) invert(1);
+}
+
 .dark .category-title {
   color: white;
 }
 
 .dark .preloader {
+  background-color: #202024;
+}
+.dark .modal-btn-add,
+.dark .modal-btn-remove {
   background-color: #202024;
 }
