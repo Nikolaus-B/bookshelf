@@ -19,6 +19,7 @@
 .dark .active-category {
   color: #eac645 !important;
 }
+
 .dark .title-book {
   color: #ffffff;
 }
@@ -30,6 +31,7 @@
 .dark .books-card-author {
   color: #b4afaf;
 }
+
 .dark .books-btn {
   color: #ffffff;
 }
@@ -41,6 +43,7 @@
 .dark .header-logo-text {
   fill: #ffffff;
 }
+
 .dark .header-hamburger-icon,
 .dark .header-close-icon {
   background: black;
@@ -73,17 +76,21 @@
 .book_li-description {
   color: white;
 }
+
 .dark .book_li {
   background-color: #202024;
 }
+
 .dark .book_link-amazon,
 .dark .book_link-book {
   filter: brightness(0.87) invert(100%);
 }
+
 .dark .modal-container {
   background-color: #202024;
   border: wheat;
 }
+
 .dark .content-title,
 .dark .content-subtitle,
 .dark .content-desc,
@@ -92,10 +99,12 @@
 .dark .modal-btn-remove {
   color: white;
 }
+
 .dark .close-btn-icon {
   background-color: #202024;
   stroke: wheat;
 }
+
 .dark .content-list-item {
   filter: brightness(0) invert(1);
 }
@@ -107,6 +116,7 @@
 .dark .preloader {
   background-color: #202024;
 }
+
 .dark .modal-btn-add,
 .dark .modal-btn-remove {
   background-color: #202024;
