@@ -67,7 +67,8 @@
 
 .dark .category-title,
 .dark .content-title,
-.dark .content-desc {
+.dark .content-desc,
+.dark .modal-tip {
   color: white;
 }
 
