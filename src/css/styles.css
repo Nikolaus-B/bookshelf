@@ -12,7 +12,7 @@
 @import url('./modal.css');
 
 /* shopping-list */
-@import url('./shopping-list.css');
+/* @import url('./shopping-list.css'); */
 
 /* categories+topBooks */
 @import url('./categories.css');
@@ -32,6 +32,3 @@
 
 /* dark theme */
 @import url('./dark-theme.css');
-
-/* pagination */
-@import url('./pagination.css');
