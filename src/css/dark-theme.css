@@ -7,12 +7,15 @@
   color: #ffffff;
 }
 
-.dark header {
+.dark header,
+.dark .book_li {
   background-color: #111111;
   color: #ffffff;
 }
 
-.dark .categories-item {
+.dark .categories-item,
+.dark .book_li-description,
+.dark .book_li-title {
   color: white;
 }
 
@@ -66,6 +69,8 @@
 }
 
 .dark .category-title,
+.dark .text-color,
+.dark .empty-list-text,
 .dark .content-title,
 .dark .content-desc,
 .dark .modal-tip {
@@ -74,6 +79,15 @@
 
 .dark .preloader {
   background-color: #202024;
+}
+
+.dark .book_link-amazon,
+.dark .book_link-book {
+  filter: brightness(0.93) invert(100%);
+}
+
+.dark .book_link {
+  filter: grayscale(100%);
 }
 
 .dark .close-btn-icon {
