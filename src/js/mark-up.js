@@ -66,19 +66,6 @@ function createShoppingListMarkup(book) {
   `;
 }
 
-// function createModalWindowMarkup(book) {
-//   return `
-//     <div class="image-container">
-//       <img class="book-image" src="${book.books[0].book_image}" alt="${book.books[0].title}">
-//       <div class="info-book">
-//         <h1 class="title">${book.books[0].title}</h1>
-//         <p class="author">${book.books[0].author}</p>
-//         <p class="description">${book.books[0].description}</p>
-//       </div>
-//     </div>
-//   `;
-// }
-
 function createModalWindowMarkup(book) {
   return `
       <div class="modal-img-wrap">
@@ -92,15 +79,15 @@ function createModalWindowMarkup(book) {
           <li class="content-list-item">
             <a class="content-item-link" href="${book.buy_links[0].url}" name="" target="_blank" rel="noopener noreferrer nofollow">
               <img class="link-img"
-                srcset="../img/modal/img@1x/amazon@1x.png 1x, ../img/modal/img@2x/amazon@2x.png 2x"
-                src="../img/modal/img@1x/amazon@1x.png" alt="Amazon" width="62">
+                srcset="./img/amazon@1x.png 1x, ./img/amazon@2x.png 2x"
+                src="./img/amazon@1x.png" alt="Amazon" width="62">
             </a>
           </li>
           <li class="content-list-item">
             <a class="content-item-link" href="${book.buy_links[1].url}" target="_blank" rel="noopener noreferrer nofollow">
               <img class="link-img"
-                srcset="../img/modal/img@1x/apple-books@1x.png 1x, ../img/modal/img@2x/apple-books@2x.png 2x"
-                src="../img/modal/img@1x/apple-books@1x.png" alt="Apple Books" width="32">
+                srcset="./img/apple-books@1x.png 1x, ./img/apple-books@2x.png 2x"
+                src="./img/apple-books@1x.png" alt="Apple Books" width="32">
               <img class="link-img-shdw-2"
             </a>
           </li>
