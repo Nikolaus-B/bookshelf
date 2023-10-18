@@ -100,21 +100,22 @@ function createFullCart() {
                 <p class="book_li-author">${author.trim()}</p>
                 <ul class="book-links">
                   <li>
-                    <a class="book_link" href="${amazon_product_url}">
+                    <a class="book_link" href="${amazon_product_url}" aria-label="amazon" target="_blank"
+                   rel="noopener noreferrer">
                       <img
                         class="book_link-amazon"
+                        src="${amazon1x}"
                         srcset="${amazon1x} 1x,
                         ${amazon2x} 2x"
-                        src="${amazon1x}"
                         alt="amazon"
                         width="32"
                         height="11"
                       />
                       <img
                         class="book_link-amazon hovered"
+                        src="${amazon1x}"
                         srcset="${amazon1x} 1x,
                         ${amazon2x} 2x"
-                        src="${amazon1x}"
                         alt="amazon"
                         width="32"
                         height="11"
@@ -124,23 +125,23 @@ function createFullCart() {
                   <li>
                    <a class="book_link" href="${
                      buy_links[1].url
-                   }" target="_blank"
+                   }" aria-label="apple-book" target="_blank"
                    rel="noopener noreferrer">
 
                       <img
                         class="book_link-book"
-                       srcset="${book1x} 1x,
-                        ${book2x} 2x"
                         src="${book1x}"
+                        srcset="${book1x} 1x,
+                        ${book2x} 2x"
                         alt="book"
                         width="16"
                         height="16"
                       />
                       <img
                         class="book_link-book hovered"
+                        src="${book1x}"
                         srcset="${book1x} 1x,
                         ${book2x} 2x"
-                        src="${book1x}"
                         alt="book"
                         width="16"
                         height="16"
