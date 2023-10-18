@@ -13,7 +13,6 @@
   box-sizing: border-box;
 }
 
-
 /*  ? ++++++++++++++++++++++++++++++++++
      ! Styles for Mobile >>>>>>>>>>>>>
     ? ++++++++++++++++++++++++++++++++++ */
@@ -29,6 +28,7 @@
   overflow-y: scroll;
   transition: opacity 250ms var(--t-cubic-bezier),
     visibility 250ms var(--t-cubic-bezier);
+  z-index: 100;
 }
 
 .is-hidden {
