@@ -224,6 +224,20 @@
 .book_link:hover .hovered {
   display: inline-block;
 }
+.book_link-amazon:focus,
+.book_link-amazon:hover {
+  filter: grayscale(100%);
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
+}
+
+.book_link-book {
+  filter: grayscale(100%);
+}
+
+.book_link-book:focus,
+.book_link-book:hover {
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
+}
 
 @media screen and (min-width: 768px) {
   .container {
@@ -281,13 +295,14 @@
   .book_link-amazon {
     width: 48px;
     height: 15px;
-    filter: brightness(1);
+    filter: grayscale(100%);
+    /* filter: brightness(1); */
   }
 
   .book_link-book {
     width: 28px;
     height: 27px;
-    filter: brightness(1);
+    /* filter: brightness(1); */
   }
 }
 @media screen and (min-width: 1440px) {

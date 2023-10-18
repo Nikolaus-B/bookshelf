@@ -1,11 +1,17 @@
-import amazonMob1x from '../img/amazon-mob-1x.svg';
-import amazonMobT1x from '../img/amazon-mob-t1x.svg';
+// import amazonMob1x from '../img/amazon-mob-1x.svg';
+// import amazonMobT1x from '../img/amazon-mob-t1x.svg';
 
 import basketMob1x from '../img/basket-mob1x.png';
 import basketMob2x from '../img/basket-mob2x.png';
 
-import bookMob1x from '../img/book-mob1x.svg';
-import bookMobT1x from '../img/book-mob-t1x.svg';
+// import bookMob1x from '../img/book-mob1x.svg';
+// import bookMobT1x from '../img/book-mob-t1x.svg';
+
+import amazon1x from '../img/amazon@1x.png';
+import amazon2x from '../img/amazon@2x.png';
+
+import book1x from '../img/apple-books@1x.png';
+import book2x from '../img/apple-books@2x.png';
 
 import imgBookMob1x from '../img/img-book-Mob1x.png';
 import imgBookMob2x from '../img/img-book-Mob2x.png';
@@ -97,20 +103,18 @@ function createFullCart() {
                     <a class="book_link" href="${amazon_product_url}">
                       <img
                         class="book_link-amazon"
-                        src="${amazonMob1x}"
-                        srcset="
-                          ${amazonMob1x} 1x,
-                        "
+                        srcset="${amazon1x} 1x,
+                        ${amazon2x} 2x"
+                        src="${amazon1x}"
                         alt="amazon"
                         width="32"
                         height="11"
                       />
                       <img
                         class="book_link-amazon hovered"
-                        src="${amazonMobT1x}"
-                        srcset="
-                          ${amazonMobT1x} 1x,
-                        "
+                        srcset="${amazon1x} 1x,
+                        ${amazon2x} 2x"
+                        src="${amazon1x}"
                         alt="amazon"
                         width="32"
                         height="11"
@@ -121,24 +125,22 @@ function createFullCart() {
                    <a class="book_link" href="${
                      buy_links[1].url
                    }" target="_blank"
-              rel="noopener noreferrer">
+                   rel="noopener noreferrer">
 
                       <img
                         class="book_link-book"
-                        src="${bookMob1x}"
-                        srcset="
-                          ${bookMob1x} 1x,
-                        "
+                       srcset="${book1x} 1x,
+                        ${book2x} 2x"
+                        src="${book1x}"
                         alt="book"
                         width="16"
                         height="16"
                       />
                       <img
                         class="book_link-book hovered"
-                        src="${bookMobT1x}"
-                        srcset="
-                          ${bookMobT1x} 1x,
-                        "
+                        srcset="${book1x} 1x,
+                        ${book2x} 2x"
+                        src="${book1x}"
                         alt="book"
                         width="16"
                         height="16"
