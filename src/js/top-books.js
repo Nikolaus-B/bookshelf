@@ -81,7 +81,9 @@ function renderCategoryBooks(id, content) {
     innerHTML += createCategoryMarkup(content[index]);
   }
   topBooksContainer.innerHTML = innerHTML;
+
   openModal();
+  
   setTimeout(() => {
     preloader.classList.remove('visible');
   }, 300);
