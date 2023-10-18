@@ -83,14 +83,14 @@ function renderCategoryBooks(id, content) {
   topBooksContainer.innerHTML = innerHTML;
 
   openModal();
-  
+
   setTimeout(() => {
     preloader.classList.remove('visible');
   }, 300);
 }
 
 function createTopMarkup(book) {
-  return `<a href="#" class="books-intem-link" aria-label="books-item-link" rel="noopener noreferrer" data-id='${book._id}'>
+  return `<a href="#" class="books-intem-link" aria-label="Link to book page" rel="noopener noreferrer" data-id='${book._id}'>
 
     <div class="books-card">
       <img
