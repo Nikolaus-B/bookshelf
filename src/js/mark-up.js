@@ -1,3 +1,9 @@
+import amazon1x from '../img/amazon@1x.png';
+import amazon2x from '../img/amazon@2x.png';
+
+import book1x from '../img/apple-books@1x.png';
+import book2x from '../img/apple-books@2x.png';
+
 export {
   createTopMarkup,
   createCategoryMarkup,
@@ -87,15 +93,15 @@ function createModalWindowMarkup(book) {
           <li class="content-list-item">
             <a class="content-item-link" href="${book.buy_links[0].url}" name="" target="_blank" rel="noopener noreferrer nofollow">
               <img class="link-img"
-                srcset="./img/amazon@1x.png 1x, ./img/amazon@2x.png 2x"
-                src="./img/amazon@1x.png" alt="Amazon" width="62">
+                srcset="${amazon1x} 1x, ${amazon2x} 2x"
+                src="${amazon1x}" alt="Amazon" width="62">
             </a>
           </li>
           <li class="content-list-item">
             <a class="content-item-link" href="${book.buy_links[1].url}" target="_blank" rel="noopener noreferrer nofollow">
               <img class="link-img"
-                srcset="./img/apple-books@1x.png 1x, ./img/apple-books@2x.png 2x"
-                src="./img/apple-books@1x.png" alt="Apple Books" width="32">
+                srcset="${book1x} 1x, ${book2x} 2x"
+                src="${book1x}" alt="Apple Books" width="32">
               <img class="link-img-shdw-2"
             </a>
           </li>
