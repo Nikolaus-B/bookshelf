@@ -42,14 +42,22 @@ function createTopMarkup(book) {
 }
 
 function createCategoryMarkup(book) {
-  return `
-  <div class="image-container">
+   const markup = `
+   <a href="#" class="books-intem-link" aria-label="books-item-link" rel="noopener noreferrer" data-id='${book._id}'>
+  <div class="books-card">
        <img class="book-image" src="${book.book_image}" alt="${book.title}">
+       <div class="books-overlay">
+        <p class="books-overlay-text">quick view</p>
+        </div>
+     </div>
        <div class="info-book">
          <h1 class="title">${book.title}</h1>
          <p class="author">${book.author}</p>
        </div>
-  </div>`;
+  </div>
+  </a>`;
+
+  return markup;
 }
 
 function createShoppingListMarkup(book) {

@@ -82,6 +82,8 @@ function renderCategoryBooks(id, content) {
   }
   topBooksContainer.innerHTML = innerHTML;
 
+  openModal();
+  
   setTimeout(() => {
     preloader.classList.remove('visible');
   }, 300);
