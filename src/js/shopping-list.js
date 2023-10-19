@@ -34,7 +34,7 @@ const STORAGE_KEY = 'books';
 
 function createEmptyCart() {
   const markup = `
-  <div class="empty-list">
+  <li class="empty-list">
       <p class="empty-list-text">
         This page is empty, add some books and proceed to order.
       </p>
@@ -49,7 +49,7 @@ function createEmptyCart() {
         width="265"
         height="198"
          />
-      </div>`;
+      </li>`;
   bookList.innerHTML = markup;
 }
 
@@ -156,10 +156,10 @@ function createFullCart() {
     )
     .join('');
 
-  if (markup.length === 0) {
-    createEmptyCart();
-  } else {
+  if (markup.length > 0) {
     bookList.innerHTML = markup;
+  } else {
+    createEmptyCart();
   }
 }
 
