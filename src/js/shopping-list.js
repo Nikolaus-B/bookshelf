@@ -77,7 +77,7 @@ function createFullCart() {
             </div>
             <div class="book_li-info">
               <div class="book_li-header">
-                <button class="book_li-btn js-card__delete">
+                <button class="book_li-btn js-card__delete" aria-label="Remove from shopping list">
                   <img
                     class="book_li-icon js-card__delete"
                     src="${basketMob1x}"
@@ -100,7 +100,7 @@ function createFullCart() {
                 <p class="book_li-author">${author.trim()}</p>
                 <ul class="book-links">
                   <li>
-                    <a class="book_link" href="${amazon_product_url}" aria-label="amazon" target="_blank"
+                    <a class="book_link" href="${amazon_product_url}" aria-label="Open the book in the online store" target="_blank"
                    rel="noopener noreferrer">
                       <img
                         class="book_link-amazon"
@@ -125,7 +125,7 @@ function createFullCart() {
                   <li>
                    <a class="book_link" href="${
                      buy_links[1].url
-                   }" aria-label="apple-book" target="_blank"
+                   }" aria-label="Open the book in the online store" target="_blank"
                    rel="noopener noreferrer">
 
                       <img

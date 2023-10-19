@@ -48,8 +48,8 @@ function createTopMarkup(book) {
 }
 
 function createCategoryMarkup(book) {
-   const markup = `
-   <a href="#" class="books-intem-link" aria-label="books-item-link" rel="noopener noreferrer" data-id='${book._id}'>
+  const markup = `
+   <a href="#" class="books-intem-link" aria-label="Link to book page" rel="noopener noreferrer" data-id='${book._id}'>
   <div class="books-card">
        <img class="book-image" src="${book.book_image}" alt="${book.title}">
        <div class="books-overlay">
@@ -91,14 +91,14 @@ function createModalWindowMarkup(book) {
         <p class="content-desc">${book.description}</p>
         <ul class="content-list">
           <li class="content-list-item">
-            <a class="content-item-link" href="${book.buy_links[0].url}" name="" target="_blank" rel="noopener noreferrer nofollow">
+            <a class="content-item-link" href="${book.buy_links[0].url}" name="" target="_blank" rel="noopener noreferrer nofollow" aria-label="Open the book in the online store">
               <img class="link-img"
                 srcset="${amazon1x} 1x, ${amazon2x} 2x"
                 src="${amazon1x}" alt="Amazon" width="62">
             </a>
           </li>
           <li class="content-list-item">
-            <a class="content-item-link" href="${book.buy_links[1].url}" target="_blank" rel="noopener noreferrer nofollow">
+            <a class="content-item-link" href="${book.buy_links[1].url}" target="_blank" rel="noopener noreferrer nofollow" aria-label="Open the book in the online store">
               <img class="link-img"
                 srcset="${book1x} 1x, ${book2x} 2x"
                 src="${book1x}" alt="Apple Books" width="32">
