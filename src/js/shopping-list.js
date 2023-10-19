@@ -40,10 +40,10 @@ function createEmptyCart() {
       </p>
       <img
          class="empty-list-img"
-         src="../img/img-book-Mob1x.png"
+         src="${imgBookMob1x}"
          srcset="
-         ../img/img-book-Mob1x.png 1x,
-         ../img/img-book-Mob2x.png 2x
+         ${imgBookMob1x} 1x,
+         ${imgBookMob2x} 2x
          "
         alt="books"
         width="265"
