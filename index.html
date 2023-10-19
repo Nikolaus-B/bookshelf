@@ -13,7 +13,7 @@
       referrerpolicy="no-referrer"
     />
     
-    <script type="module" crossorigin src="/bookshelf/assets/index-34d50ea8.js"></script>
+    <script type="module" crossorigin src="/bookshelf/assets/index-cb664205.js"></script>
     <link rel="modulepreload" crossorigin href="/bookshelf/assets/dark-theme-626332ef.js">
     <link rel="stylesheet" href="/bookshelf/assets/index-83d5d9a7.css">
   </head>
@@ -23,7 +23,7 @@
   <div class="header-section container">
     <div class="header-container">
       <div>
-        <a href="index.html" class="logo-link">
+        <a href="index.html" class="logo-link" aria-label="Go to homepage">
           <svg width="24px" height="24px">
             <use href="/bookshelf/assets/icons-fcbfc5e4.svg#logo"></use>
           </svg>
@@ -35,12 +35,18 @@
       <nav class="header-nav">
         <ul class="header-nav-list">
           <li>
-            <a href="./index.html" class="header-nav-item-link current-home"
+            <a
+              href="./index.html"
+              class="header-nav-item-link current-home"
+              aria-label="Go to homepage"
               ><span class="header-nav-item">Home</span></a
             >
           </li>
           <li>
-            <a href="./shopping-list.html" class="header-nav-item-link"
+            <a
+              href="./shopping-list.html"
+              class="header-nav-item-link"
+              aria-label="Go to shopping list"
               ><span class="header-nav-item">Shopping list</span
               ><svg class="header-nav-icon" width="20px" height="20px">
                 <use href="/bookshelf/assets/icons-fcbfc5e4.svg#cart"></use></svg
@@ -51,12 +57,12 @@
     </div>
     <div class="header-btn-container">
       <div class="checkbox-container">
-        <label id="switch" class="switch">
+        <label for="slider" class="switch">
           <input type="checkbox" id="slider" />
           <span class="slider round"></span>
         </label>
       </div>
-      <button class="header-button js-open-menu">
+      <button class="header-button js-open-menu" aria-label="Mobile menu">
         <svg class="header-hamburger-icon" width="28px" height="28px">
           <use href="/bookshelf/assets/icons-fcbfc5e4.svg#rename" class="hamburger"></use>
         </svg>
@@ -64,24 +70,27 @@
           <use href="/bookshelf/assets/icons-fcbfc5e4.svg#close"></use>
         </svg>
       </button>
-      <!-- <button class="header-button-user">
+      <!-- <button class="header-button-user" aria-label="User">
         <svg class="header-user-icon" width="19px" height="19px">
           <use href="./img/icons.svg#user"></use>
         </svg>
       </button> -->
-      <button class="header-sign-up">
+      <button class="header-sign-up" aria-label="Sign up in user profile">
         Sign up<svg class="header-sign-up-icon" width="20px" height="20px">
           <use href="/bookshelf/assets/icons-fcbfc5e4.svg#arrow-right"></use>
         </svg>
       </button>
-      <button class="header-user-btn visually-hidden">
+      <button class="header-user-btn visually-hidden" aria-label="User profile">
         <img src="#" alt="" class="header-user-photo" />
         <!-- <p class="header-user-name">User</p> -->
         <svg class="header-icon-user" width="23px" height="26px">
           <use href="/bookshelf/assets/icons-fcbfc5e4.svg#icon-caret-down"></use>
         </svg>
       </button>
-      <button class="header-log-out visually-hidden">
+      <button
+        class="header-log-out visually-hidden"
+        aria-label="Log out from user profile"
+      >
         Log out<svg class="header-sign-up-icon" width="20px" height="20px">
           <use href="/bookshelf/assets/icons-fcbfc5e4.svg#arrow-right"></use>
         </svg>
@@ -92,26 +101,38 @@
 <div class="mob-menu js-menu-container">
   <div class="mob-menu-wraper">
     <div class="menu-contain">
-      <button class="menu-sign-up visually-hidden">
+      <button
+        class="menu-sign-up visually-hidden"
+        aria-label="Sign up in user profile"
+      >
         Sign up<svg class="header-sign-up-icon" width="20px" height="20px">
           <use href="/bookshelf/assets/icons-fcbfc5e4.svg#arrow-right"></use>
         </svg>
       </button>
       <ul class="header-list">
         <li class="mob-menu-item">
-          <a href="./index.html" class="header-nav-item-link current-home"
+          <a
+            href="./index.html"
+            class="header-nav-item-link current-home"
+            aria-label="Go to homepage"
             ><span class="header-nav-item">Home</span></a
           >
         </li>
         <li class="mob-menu-item">
-          <a href="./shopping-list.html" class="header-nav-item-link"
+          <a
+            href="./shopping-list.html"
+            class="header-nav-item-link"
+            aria-label="Go to shopping list"
             ><span class="header-nav-item nav-item-shop">Shopping list</span
             ><svg class="header-nav-icon" width="20px" height="20px">
               <use href="/bookshelf/assets/icons-fcbfc5e4.svg#cart"></use></svg
           ></a>
         </li>
       </ul>
-      <button class="menu-log-out visually-hidden">
+      <button
+        class="menu-log-out visually-hidden"
+        aria-label="Log out from user profile"
+      >
         Log out<svg class="header-sign-up-icon" width="20px" height="20px">
           <use href="/bookshelf/assets/icons-fcbfc5e4.svg#arrow-right"></use>
         </svg>
@@ -145,6 +166,7 @@
             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAABACAQAAADCUP3RAAAAAXNSR0IArs4c6QAAAqBJREFUeNrVmN2VpCAQhQ3BEAiBEMygO4M2gzGDMYM1AzuD3gwIwRAIwRBq9Sz0PcOFgjPjyxQvKvhB/YJ20jW1D5naRrbhjJxirgM+5RR3FbCXKP01wLtEGVuAXh6VQZNEmSsjB/GdnLKqBp+bgP1BOaQLQ72YHwHNQRAAdeQIoI4DEEgdOGk4ACGb9C1e5ihlYJzjT9Z3UW7K+hMbjrKFqyGXeEqfD7gpBRrZkWAFoC2qa2RMgQgPXkcUQ1PB+xlgH9a4pMDwXNh+iA4GIoR38rUPz1PgFvKsKwEHKJ150RcUtnkglOMAdnBXRuFOAz6hRBW44GkeCCtu1YqNaRYdCDUY+DfrqkkH3qnYFw2BdNSAJhvCr8wKLSJCAWLeqlMG6KIDYRk9DicJBA2Ilxc19RA0Wx3IDrAoDmRXpwB5Zq7YHIU6EB07KRdeT8ww14EciRu2MTqe3GpAKx41BJFJVrTvKawGtEERSkbame8CuZeA2F+dzGKTGPShJ4b1fPoZBTkHnHBNRXTN7jhjeU/ZxQd118KuZtnT2Nji2wBCbpn1OUQedhyyJQMpiz/Ds8eXcjCz0gxcZJAXNkWcChB9tEaM2E4nsVOGtz0eYtL10Rp7GcVjBHkZSQYzw360xoiCmxiYIAH+DEboj6ud+p/14uAYeiAR9hAng57LSP1XiiTcivCpAWGrVUwIbdjLUMXUgXQk4a8AVMx2YJK3OxDIH13lSQwa9tz/98GiW7gbBL1oHwBeJL8HaLLNva0GG7rYhztu+gfjLj2fD+lor32A8wcDAUeEVBOQa18CRI1sA3LtA5BrZB3IaxSxb6DBCeI7wPj15wMaFWfQgfrvC5b5J79Z5mKF1oE6knHtQF3x6bqfafvR7BX/vhCVj7aR/wBbGCgJ4WIlMgAAAABJRU5ErkJggg=="
             alt="coat_arms_Ukraine"
             width="20"
+            height="32"
           />
         </div>
         <ul class="support-list" id="logoList">
@@ -313,17 +335,30 @@
       <!-- modal -->
       <div class="backdrop is-hidden">
   <div class="modal-container">
-    <button class="modal-close-btn" type="button" data-action="modal-close">
+    <button
+      class="modal-close-btn"
+      type="button"
+      data-action="modal-close"
+      aria-label="Close modal window"
+    >
       <svg class="close-btn-icon">
         <use href="/bookshelf/assets/icons-fcbfc5e4.svg#close"></use>
       </svg>
     </button>
     <div class="modal-info-container"></div>
     <div class="modal-btn-wrap">
-      <button class="btn modal-btn-add" type="button">
+      <button
+        class="btn modal-btn-add"
+        type="button"
+        aria-label="Add to shopping list"
+      >
         Add to shopping list
       </button>
-      <button class="btn modal-btn-remove visually-hidden" type="button">
+      <button
+        class="btn modal-btn-remove visually-hidden"
+        type="button"
+        aria-label="Remove from shopping list"
+      >
         Remove from shopping list
       </button>
       <p class="modal-tip visually-hidden">
@@ -333,6 +368,7 @@
     </div>
   </div>
 </div>
+
 
       <!-- loader -->
       <div class="preloader">
