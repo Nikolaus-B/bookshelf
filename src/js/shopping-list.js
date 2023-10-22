@@ -1,3 +1,5 @@
+// import { currentPage } from './pagination';
+
 // import amazonMob1x from '../img/amazon-mob-1x.svg';
 // import amazonMobT1x from '../img/amazon-mob-t1x.svg';
 
@@ -18,6 +20,7 @@ import imgBookMob2x from '../img/img-book-Mob2x.png';
 
 import { handlerClickMenu } from './header';
 import logoModuleFunction from './support';
+
 document.addEventListener(
   'DOMContentLoaded',
   logoModuleFunction.onDOMContentLoaded
@@ -56,6 +59,17 @@ function createEmptyCart() {
 function createFullCart() {
   // Отримати дані з localStorage або встановити порожній масив, якщо немає даних
   const bookItems = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+
+  // console.log(bookItems);
+
+  // let currentPage = 1;
+  // const perPage = 4;
+  // const startIndex = (currentPage - 1) * perPage;
+  // const endIndex = startIndex + perPage;
+
+  // const itemsOnPage = bookItems.slice(startIndex, endIndex);
+
+  // console.log(itemsOnPage);
 
   const markup = bookItems
     .map(
@@ -187,3 +201,5 @@ window.onload = () => {
     createEmptyCart();
   }
 };
+
+export { createFullCart };
