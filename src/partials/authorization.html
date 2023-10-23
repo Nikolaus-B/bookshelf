@@ -1,0 +1,45 @@
+<div class="backdrop-sign-up" data-modal>
+  <div class="content_authorization">
+    <button type="button" class="close-btn" data-modal-close>
+      <svg class="close-modal" width="8" height="8">
+        <use href="../img/icons.svg#close"></use>
+      </svg>
+    </button>
+    <form class="authorization-form">
+      <input
+        type="text"
+        id="user-name"
+        name="user-name"
+        class="authorization-input name"
+        placeholder="NAME"
+        required
+        pattern="^[a-zA-Z]+"
+        minlength="2"
+      />
+      <input
+        type="email"
+        id="user-mail"
+        name="user-mail"
+        class="authorization-input email"
+        placeholder="EMAIL"
+        required
+      />
+      <input
+        type="password"
+        id="password"
+        name="password"
+        class="authorization-input password"
+        placeholder="PASSWORD"
+      />
+    </form>
+    <button class="authorization-button sign-up" type="submit">Sign UP</button>
+    <button class="authorization-button sign-in visually-hidden" type="submit">
+      Sign IN
+    </button>
+
+    <div class="sign-container">
+      <p class="auth-text active-auth" id="sign-up">Sign UP</p>
+      <p class="auth-text" id="sign-in">Sign IN</p>
+    </div>
+  </div>
+</div>

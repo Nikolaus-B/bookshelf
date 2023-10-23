@@ -32,3 +32,5 @@
 
 /* dark theme */
 @import url('./dark-theme.css');
+
+@import url('./authorization.css');
