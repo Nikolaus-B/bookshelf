@@ -1,3 +1,7 @@
+import './auth-functions';
+import { refs } from './auth-refs';
+import './open-auth';
+
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js';
 import {
   getAuth,
@@ -32,25 +36,15 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const database = getDatabase(app);
 
-const signedUserName = document.querySelector('.signed-name');
-const signName = document.querySelector('.name');
-const signEmail = document.querySelector('.email');
-const signPassword = document.querySelector('.password');
-const form = document.querySelector('.authorization-form');
-const signUpBtn = document.querySelector('.authorization-button.sign-up');
-const signInBtn = document.querySelector('.authorization-button.sign-in');
-const signOutBtn = document.querySelector('.sign-out');
-
-signUpBtn.addEventListener('click', onSignUpBtnClick);
-signInBtn.addEventListener('click', onSignInBtnClick);
+refs.signUpBtn.addEventListener('click', onSignUpBtnClick);
+refs.signInBtn.addEventListener('click', onSignInBtnClick);
 // signOutBtn.addEventListener('click', onSignOutBtnClick);
 
 function onSignUpBtnClick(e) {
   e.preventDefault();
-  const userName = signName.value;
-  const userEmail = signEmail.value;
-  const userPassword = signPassword.value;
-  signedUserName.textContent = userName;
+  const userName = refs.signName.value;
+  const userEmail = refs.signEmail.value;
+  const userPassword = refs.signPassword.value;
 
   createUserWithEmailAndPassword(auth, userEmail, userPassword)
     .then(userCredential => {
@@ -78,15 +72,15 @@ function onSignUpBtnClick(e) {
       alert(errorMessage);
     });
 
-  form.reset();
+  refs.form.reset();
 }
 
 function onSignInBtnClick(e) {
   e.preventDefault();
 
-  const userName = signName.value;
-  const userEmail = signEmail.value;
-  const userPassword = signPassword.value;
+  const userName = refs.signName.value;
+  const userEmail = refs.signEmail.value;
+  const userPassword = refs.signPassword.value;
 
   signInWithEmailAndPassword(auth, userEmail, userPassword)
     .then(userCredential => {
@@ -112,7 +106,7 @@ function onSignInBtnClick(e) {
       const errorMessage = error.message;
     });
 
-  form.reset();
+  refs.form.reset();
 }
 
 function onSignOutBtnClick(e) {
@@ -120,41 +114,4 @@ function onSignOutBtnClick(e) {
   signOut(auth)
     .then(() => {})
     .catch(err => console.log(err));
-}
-
-(() => {
-  const refs = {
-    openModalBtn: document.querySelector('[data-modal-open]'),
-    closeModalBtn: document.querySelector('[data-modal-close]'),
-    modal: document.querySelector('[data-modal]'),
-  };
-
-  refs.openModalBtn.addEventListener('click', toggleModal);
-  refs.closeModalBtn.addEventListener('click', toggleModal);
-
-  function toggleModal() {
-    refs.modal.classList.toggle('is-hidden');
-  }
-})();
-
-const signUpText = document.querySelector('#sign-up');
-const signInText = document.querySelector('#sign-in');
-
-signUpText.addEventListener('click', onsignUpTextClick);
-signInText.addEventListener('click', onsignInTextClick);
-
-function onsignUpTextClick() {
-  signInText.classList.remove('active-auth');
-  signUpText.classList.add('active-auth');
-
-  signInBtn.classList.add('visually-hidden');
-  signUpBtn.classList.remove('visually-hidden');
-}
-
-function onsignInTextClick() {
-  signUpText.classList.remove('active-auth');
-  signInText.classList.add('active-auth');
-
-  signUpBtn.classList.add('visually-hidden');
-  signInBtn.classList.remove('visually-hidden');
 }

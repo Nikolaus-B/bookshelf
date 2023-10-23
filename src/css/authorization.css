@@ -41,7 +41,9 @@
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
 }
-
+.dark .content_authorization {
+  background-color: var(--black-first);
+}
 .close-btn {
   position: absolute;
   top: 24px;
@@ -68,6 +70,10 @@
   stroke: black;
 }
 
+.dark .close-modal {
+  stroke: var(--white-color);
+}
+
 .authorization-form {
   display: flex;
   width: 100%;
@@ -89,19 +95,28 @@
   transition: border-color var(--transition-dur-and-func);
 }
 
+.dark .authorization-input {
+  border: 2px solid var(--white-color);
+  color: var(--white-color);
+}
+
+.dark ::placeholder {
+  color: var(--white-color);
+}
+
 .authorization-button {
   display: block;
   text-align: center;
-  min-width: 499px;
+  width: 100%;
+  /* max-width: 499px; */
   height: 64px;
   /* padding: 20px 215px; */
   margin: 0 auto;
 
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.33;
+  letter-spacing: 0.01em;
   transition: background-color var(--transition-dur-and-func);
 
   color: #f3f3f3;
@@ -113,7 +128,10 @@
   border-radius: 40px;
   margin-bottom: 20px;
 }
-
+.dark .authorization-button {
+  color: var(--black-first);
+  background-color: var(--white-color);
+}
 .sign-container {
   display: flex;
   margin: 0 auto;
@@ -128,11 +146,21 @@
 
 .auth-text {
   cursor: pointer;
+  font-weight: 700;
+  color: #11111180;
+}
+
+.dark .auth-text {
+  color: #f6f6f680;
 }
 
 .active-auth {
   color: #4f2ee8;
   text-decoration: underline;
+}
+
+.dark .active-auth {
+  color: #4f2ee8;
 }
 
 .sign-up-header {
