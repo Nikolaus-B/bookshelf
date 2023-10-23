@@ -1,6 +1,7 @@
 import './auth-functions';
 import { refs } from './auth-refs';
 import './open-auth';
+import { onPageChange } from './change-on-profile';
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js';
 import {
@@ -40,37 +41,48 @@ refs.signUpBtn.addEventListener('click', onSignUpBtnClick);
 refs.signInBtn.addEventListener('click', onSignInBtnClick);
 // signOutBtn.addEventListener('click', onSignOutBtnClick);
 
+onPageChange();
 function onSignUpBtnClick(e) {
   e.preventDefault();
   const userName = refs.signName.value;
   const userEmail = refs.signEmail.value;
   const userPassword = refs.signPassword.value;
 
-  createUserWithEmailAndPassword(auth, userEmail, userPassword)
-    .then(userCredential => {
-      // Signed up
-      const user = userCredential.user;
-      // ... user.uid
-      set(ref(database, 'users/' + user.uid), {
-        username: userName,
-        email: userEmail,
-        password: userPassword,
-      })
-        .then(() => {
-          // Data saved successfully!
-          alert('welcome');
-        })
-        .catch(error => {
-          // The write failed...
-          alert(error);
-        });
-    })
-    .catch(error => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // ..
-      alert(errorMessage);
-    });
+  // createUserWithEmailAndPassword(auth, userEmail, userPassword)
+  //   .then(userCredential => {
+  //     // Signed up
+  //     const user = userCredential.user;
+  //     // ... user.uid
+  //     set(ref(database, 'users/' + user.uid), {
+  //       username: userName,
+  //       email: userEmail,
+  //       password: userPassword,
+  //     })
+  //       .then(() => {
+  //         // Data saved successfully!
+  //         alert('welcome');
+  //       })
+  //       .catch(error => {
+  //         // The write failed...
+  //         alert(error);
+  //       });
+  //   })
+  //   .catch(error => {
+  //     const errorCode = error.code;
+  //     const errorMessage = error.message;
+  //     // ..
+  //     alert(errorMessage);
+  //   });
+
+  refs.headerSignUp.classList.add('visually-hidden');
+  refs.headerUserProfile.classList.remove('visually-hidden');
+  refs.buttonContainer.classList.remove('visually-hidden');
+  refs.mobileBtnOpen.classList.add('visually-hidden');
+  refs.mobileLogOut.classList.remove('visually-hidden');
+
+  refs.headerSpan.textContent = userName;
+
+  refs.modal.classList.toggle('is-hidden');
 
   refs.form.reset();
 }
@@ -82,29 +94,39 @@ function onSignInBtnClick(e) {
   const userEmail = refs.signEmail.value;
   const userPassword = refs.signPassword.value;
 
-  signInWithEmailAndPassword(auth, userEmail, userPassword)
-    .then(userCredential => {
-      // Signed in
-      const user = userCredential.user;
-      // ...
-      let loginDate = new Date();
+  // signInWithEmailAndPassword(auth, userEmail, userPassword)
+  //   .then(userCredential => {
+  //     // Signed in
+  //     const user = userCredential.user;
+  //     // ...
+  //     let loginDate = new Date();
 
-      update(ref(database, 'users/' + user.uid), {
-        last_login: loginDate,
-      })
-        .then(() => {
-          // Data saved successfully!
-          alert('welcome');
-        })
-        .catch(error => {
-          // The write failed...
-          alert(error);
-        });
-    })
-    .catch(error => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-    });
+  //     update(ref(database, 'users/' + user.uid), {
+  //       last_login: loginDate,
+  //     })
+  //       .then(() => {
+  //         // Data saved successfully!
+  //         alert('welcome');
+  //       })
+  //       .catch(error => {
+  //         // The write failed...
+  //         alert(error);
+  //       });
+  //   })
+  //   .catch(error => {
+  //     const errorCode = error.code;
+  //     const errorMessage = error.message;
+  //   });
+
+  refs.headerSignUp.classList.add('visually-hidden');
+  refs.headerUserProfile.classList.remove('visually-hidden');
+  refs.buttonContainer.classList.remove('visually-hidden');
+  refs.mobileBtnOpen.classList.add('visually-hidden');
+  refs.mobileLogOut.classList.remove('visually-hidden');
+
+  refs.headerSpan.textContent = userName;
+
+  refs.modal.classList.toggle('is-hidden');
 
   refs.form.reset();
 }

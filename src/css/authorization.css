@@ -8,11 +8,11 @@
   height: 100%;
   background-color: #4f2ee8;
 
-  transition: opacity var(--transition-dur-and-func),
-    visibility var(--transition-dur-and-func);
+  transition: opacity 250ms var(cubic-bezier(0.4, 0, 0.2, 1)),
+    visibility 250ms var(cubic-bezier(0.4, 0, 0.2, 1));
 }
 
-.backdrop-sign-up.is-hidden {
+.backdrop-sign-up .is-hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;

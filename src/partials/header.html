@@ -63,21 +63,26 @@
           <use href="./img/icons.svg#arrow-right"></use>
         </svg>
       </button>
-      <button class="header-user-btn visually-hidden" aria-label="User profile">
-        <img src="#" alt="" class="header-user-photo" />
-        <!-- <p class="header-user-name">User</p> -->
-        <svg class="header-icon-user" width="23px" height="26px">
-          <use href="./img/icons.svg#icon-caret-down"></use>
-        </svg>
-      </button>
-      <button
-        class="header-log-out visually-hidden"
-        aria-label="Log out from user profile"
-      >
-        Log out<svg class="header-sign-up-icon" width="20px" height="20px">
-          <use href="./img/icons.svg#arrow-right"></use>
-        </svg>
-      </button>
+      <div class="header-button-container visually-hidden">
+        <button
+          class="header-user-btn visually-hidden"
+          aria-label="User profile"
+        >
+          <img src="./img/stephan.png" alt="" class="header-user-photo" />
+          <span class="header-user-name">User</span>
+          <svg class="header-icon-user" width="23px" height="26px">
+            <use href="./img/icons.svg#icon-caret-down"></use>
+          </svg>
+        </button>
+        <button
+          class="header-log-out visually-hidden"
+          aria-label="Log out from user profile"
+        >
+          Log out<svg class="header-sign-up-icon" width="20px" height="20px">
+            <use href="./img/icons.svg#arrow-right"></use>
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </header>
@@ -85,11 +90,19 @@
   <div class="mob-menu-wraper">
     <div class="menu-contain">
       <button
-        class="menu-sign-up visually-hidden"
+        class="menu-sign-up"
         aria-label="Sign up in user profile"
-        data-modal-open
+        data-mobile-open
       >
         Sign up<svg class="header-sign-up-icon" width="20px" height="20px">
+          <use href="./img/icons.svg#arrow-right"></use>
+        </svg>
+      </button>
+      <button
+        class="menu-log-out visually-hidden"
+        aria-label="Log out from user profile"
+      >
+        Log out<svg class="header-sign-up-icon" width="20px" height="20px">
           <use href="./img/icons.svg#arrow-right"></use>
         </svg>
       </button>
@@ -113,14 +126,6 @@
           ></a>
         </li>
       </ul>
-      <button
-        class="menu-log-out visually-hidden"
-        aria-label="Log out from user profile"
-      >
-        Log out<svg class="header-sign-up-icon" width="20px" height="20px">
-          <use href="./img/icons.svg#arrow-right"></use>
-        </svg>
-      </button>
     </div>
   </div>
 </div>
